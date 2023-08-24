@@ -115,10 +115,9 @@
 \TitleCitation{Artificial Neural Network based critical conditions for Dynamic Recrystallization of Medium Carbon Steel and Application}
 
 % Author Orchid ID: enter ID or remove command
-\newcommand{\orcidauthorA}{0000-0001-7367-5453} % Add \orcidA{} behind the author's name
-\newcommand{\orcidauthorB}{0000-0002-1522-2787} % Add \orcidB{} behind the author's name
-\newcommand{\orcidauthorC}{0000-0002-5360-5121}% Add \orcidB{} behind the
-%author's name
+\newcommand{\orcidauthorA}{0000-0001-7367-5453}
+\newcommand{\orcidauthorB}{0000-0002-1522-2787}
+\newcommand{\orcidauthorC}{0000-0002-5360-5121}
 \newcommand{\orcidauthorD}{0000-0002-0815-1984}
 
 % Authors, for the paper (add full first names)
@@ -138,7 +137,7 @@
 $^{2}$ \quad Department of Mechanical Engineering, École de Technologie Supérieure, 1100 Notre Dame St. W., Montréal, QC H3C 1K3, Canada; prashant-nagnath.dhondapure.1@ens.etsmtl.ca (P.D.); mohammad.jahazi@etsmtl.ca (M.J.)}
 
 % Contact information of the corresponding author
-\corres{Correspondence: Olivier.Pantale@enit.fr; Tel.: +33-562442933}
+\corres{Correspondence: olivier.pantale@enit.fr; Tel.: +33-562442933}
 
 % Current address and/or shared authorship
 %\firstnote{Current address: Affiliation 3.}
@@ -150,13 +149,16 @@ $^{2}$ \quad Department of Mechanical Engineering, École de Technologie Supéri
 %\conference{} % An extended version of a conference paper
 
 % Abstract (Do not insert blank lines, i.e. \\)
-\abstract{This study presents a novel and comprehensive approach for understanding and simulating the dynamic recrystallization (DRX) process during hot compression.
-To achieve this, the high-temperature deformation behavior of a medium carbon steel was studied over a wide range of strains, strain rates, and temperatures using hot compression tests on a Gleeble-3800 and ANN based flow behaviour law was used to model the plastic behaviour.
-The accuracy of the DRX volumic fraction, both during its identification using analytical models and its numerical implementation in finite element software, relies on critical conditions and therfore, in this study, an artificial neural network, as a universal approximator, is proposed to fit the necessary data for calculating the critical conditions of DRX.
-The JMAK model was used as an analytical model to calculate the volumic fraction of DRX, and its validation against experimental data was successful.
-A numerical implementation of the Johnson-Mehl-Avrami-Kohnogorov (JMAK) model was implemented into ABAQUS software, and the obtained results were compared with experimental data through microstructure analysis, revealing a strong correlation between simulation and experimentation.
-Temperature, strain rate and the amount of deformation effects on DRX evoultion were also investigated in this study and it was observed that the DRX rises with temperature and deformation while it decreases with the increase of strain rates.
-}
+\abstract{This study presents a novel and thorough approach to comprehending and simulating the DRX process while hot-compressing steel.
+To achieve this goal, we studied the high-temperature deformation behavior of a medium-carbon steel through hot compression testing on a Gleeble-3800 thermomechanical simulator over a broad range of strains, strain rates, and temperatures.
+We also employed an artificial neural network (ANN) to model thermo-visco-plastic behavior with a flow law.
+The precision of quantifying DRX volume fraction is dependent on critical conditions, which are essential for both analytical model evaluation and numerical implementation in finite element software.
+This study proposes a second ANN, serving as a universal approximator, to fit the data required for DRX critical condition calculations.
+The Johnson-Mehl-Avrami-Kohnogorov (JMAK) model served as an analytical tool to estimate the DRX volume fraction, which underwent validation through experimental measurements.
+A numerical implementation of the JMAK model was conducted in ABAQUS software and compared against experimental data by means of microstructure analysis.
+The comparison revealed a strong correlation between simulation and experiment.
+The study investigated the impact of temperature, deformation magnitude, and strain rate on DRX evolution.
+The findings showed that DRX increases with rising temperature and strain, but decreases with increasing strain rate.}
 
 % Keywords
 \keyword{Artificial Neural Network; Constitutive Flow Law; Gleeble simulator, Dynamic Recrystallization, Finite Element Analysis}
