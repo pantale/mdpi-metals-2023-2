@@ -271,7 +271,7 @@ Using experimental raw data directly does not yield functional curves, thus smoo
 The drawback of both of these methods is that they do not always ensure a satisfactory smoothing of the curve $\sigma(\varepsilon)$.
 Nevertheless, the Universal Approximator, Artificial Neural Networks (ANN), has demonstrated effectiveness in various domains, such as predicting the flow behavior of materials.
 Hence, this study offers a replacement of the two smoothing methods with an ANN to procure the critical conditions for DRX.
-In other words, the proposed method suggests using an artificial neural network (ANN) to directly model the relationship between stress $\sigma$ and rate hardening $\theta$, removing the need for explicit smoothing of experimental data.
+In other words, the proposed method suggests using an artificial neural network to directly model the relationship between stress $\sigma$ and rate hardening $\theta$, removing the need for explicit smoothing of experimental data.
 By properly training the ANN with relevant data, it can learn the underlying relationship between stress and dynamic recrystallization (DRX), ultimately providing a more precise estimation of the critical conditions for DRX.
 
 %----------------------------------------------------------------------------------
@@ -297,11 +297,11 @@ The material used for this study is a medium-carbon steel with the chemical comp
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 \begin{tabularx}{\textwidth}{LCCCCCCC}
-\hline
+\toprule
 \textbf{Element} & \textbf{C} & \textbf{Mn} & \textbf{Mo} & \textbf{Si} & \textbf{Ni} & \textbf{Cr} & \textbf{Cu} \\
-\hline
+\toprule
 \textbf{Wt~\%} & $0.30$ & $0.89$ & $0.52$ & $0.34$ & $0.68$ & $1.86$ & $0.17$ \\
-\hline
+\bottomrule
 \end{tabularx}
 \label{tab:Composition}
 \end{table}
@@ -409,6 +409,8 @@ So that for a $7-5$ network, $N_{int}=60$.
 \end{figure}
 The Python program used for training the neural network was created with the dedicated Python library, Tensorflow \cite{Abadi-2016}.
 The training phase employed the Adaptive Moment Estimation (ADAM) optimizer \cite{Kingma-2015}.
+The training was conducted using $50,000$ epochs of the experimental dataset.
+It took approximately 15 minutes to train the ANN model on a Dell XPS-13 7390 laptop running Ubuntu 22.04 LTS 64-bit with 16 GB of RAM and an Intel 4-core i7-10510U processor until the converged parameters were obtained.
 
 %----------------------------------------------------------------------------------
 \subsubsection{ANN filtering based model's application \label{subsec:ANNapplication}}
@@ -436,8 +438,9 @@ where $\sigma_i^e$ is the experimental value, $\sigma_i^p$ is the value of the s
 For the proposed ANN filter $\RMSE=0.093~\MPa$ and $\MARE=0.231~\%$, while using a $11^{th}$ order polynomial fit of the experimental data leads to $\RMSE=0.120~\MPa$ and $\MARE=0.275~\%$.
 
 It is evident that using the ANN model to depict the $\sigma(\varepsilon)$ curve is superior to using an $11^{th}$ order polynomial fit, as demonstrated by the lower estimated error.
-Thus, this architecture of the ANN model is used for all subsequent curves, resulting in the deduction of the hardening $\theta(\sigma)$ curves, which illustrate the stress change rate relative to strain ($\frac{\partial \sigma}{\partial \varepsilon}$).
-An example of calculating the hardening curve for a single temperature is presented in Figure \ref{fig:AnnTheta}, while an overview of the remaining temperatures can be found in Figure \ref{fig:nThetaOP}. \OP{Have to improve this later} \textcolor{red}{Okay}.
+Thus, this architecture of the ANN model is used for all subsequent curves, resulting in the deduction of the hardening curves, which illustrate the stress change rate relative to strain ($\frac{\partial \sigma}{\partial \varepsilon}$).
+An illustration of computing the hardening curve $\theta(\sigma)$ for a single temperature is displayed in Figure \ref{fig:AnnTheta}. The blue line represents the direct calculation of the derivative of the raw stress versus strain, whereas the red line represents the derivative of the stress filtered by the neural network versus strain.
+An overview of the remaining temperatures can be found in Figure \ref{fig:nThetaOP}. \OP{Have to improve this later} \textcolor{red}{Okay}.
 The identical process applies to all 20 stress/strain curves.
 These curves deliver essential data regarding the critical stresses and strains required for predicting DRX in the subsequent analysis.
 
@@ -496,25 +499,25 @@ Once the critical DRX conditions are established, they can be used as input to d
 \begin{tabular}{cccccc}
 \toprule
 $\mdot{\varepsilon}$ ($\ps$) & $T$ (\celsius) & $\varepsilon_p$ & $\sigma_p$ (MPa) &  $\varepsilon_c$ & $\sigma_c$ (MPa) \\
-\hline
+\toprule
  & $1050$ & $0.178$ & $37.862$ & $0.083$ & $33.050$\\
  & $1100$ & $0.143$ & $29.770$ & $0.067$ & $25.648$\\
 $0.001$ & $1150$ & $0.124$ & $23.330$ & $0.051$ & $19.116$\\
  & $1200$ & $0.102$ & $19.373$ & $0.039$ & $16.244$\\
  & $1250$ & $0.084$ & $13.883$ & $0.035$ & $11.302$\\
-
+\hline
  & $1050$ & $0.281$ & $57.915$ & $0.131$ & $51.602$\\
  & $1100$ & $0.228$ & $46.107$ & $0.108$ & $40.495$\\
 $0.01$ & $1150$ & $0.195$ & $38.249$ & $0.086$ & $33.435$\\
  & $1200$ & $0.172$ & $30.991$ & $0.076$ & $26.718$\\
  & $1250$ & $0.139$ & $24.739$ & $0.051$ & $20.004$\\
-
+\hline
  & $1050$ & $0.571$ & $91.413$ & $0.244$ & $83.814$\\
  & $1100$ & $0.430$ & $72.662$ & $0.194$ & $65.259$\\
 $0.1$ & $1150$ & $0.344$ & $57.774$ & $0.160$ & $51.723$\\
  & $1200$ & $0.299$ & $48.473$ & $0.136$ & $42.386$\\
  & $1250$ & $0.259$ & $40.195$ & $0.119$ & $35.277$\\
-
+\hline
  & $1050$ & $0.700$ & $127.17$ & $0.577$ & $116.10$\\
  & $1100$ & $0.700$ & $106.61$ & $0.329$ & $94.510$\\
 $1$ & $1150$ & $0.700$ & $89.525$ & $0.268$ & $89.067$\\
@@ -529,16 +532,19 @@ $1$ & $1150$ & $0.700$ & $89.525$ & $0.268$ & $89.067$\\
 \subsection{DRXmodel parameters evaluation\label{subsec:DRXparams}}
 %----------------------------------------------------------------------------------
 
-The DRX process commences at a critical deformation, as previously noted. 
+The DRX process commences at a critical deformation, as previously noted.
 The degree of recrystallization can be determined through experimental means.
 Figure \ref{fig:DRXschema} depicts three phases of recrystallization: nucleation, grain growth, and grain coalescence  \cite{wan2017experimental}. \OP{REF ?} \textcolor{red}{Done}
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.7\columnwidth]{Figures/picDRX}
-\caption{Schematic diagram of three stages during DRX, nucleation, nucleus growth and grain contact \cite{wan2017experimental}. \OP{Is it a copy/paste from a publication? If so, you can't put it as it!} \textcolor{red}{Of course it was taken from publication as reference is mentioned. Please, I will appreciate if you could rearrange it as it would have been made. Thanks !}}
+\caption{Schematic diagram of three stages during DRX, nucleation, nucleus growth and grain contact.% \OP{Is it a copy/paste from a publication? If so, you can't put it as it!} \textcolor{red}{Of course it was taken from publication as reference is mentioned. Please, I will appreciate if you could rearrange it as it would have been made. Thanks !}
+}
 \label{fig:DRXschema}
 \end{figure}
+\OP{See the new proposed figure 6}
+
 The flow stress curve of the material is influenced by the rate of work hardening, which in turn is affected by dislocations within the free grains.
 The predicted volumetric fraction of the dynamic recrystallization ($X_{drx}^{p}$) is estimated using the Avrami model  \cite{wan2017experimental} \OP{REF?} \textcolor{red}{Done}, commonly known as the JMAK model, expressed by the following equation:
 \begin{equation}
@@ -598,35 +604,39 @@ These results will therefore be used subsequently in the simulation section.
 \caption{Comparison between DRX experimental data and JMAK model based prediction. \OP{I don't see the comparison? Is there many superposed curves ???} \textcolor{red}{As I said in my previous mail, I was writing the paper like the experimental data are already provided. Everything is okay now, I think !}}
 \label{fig:nDRX}
 \end{figure}
+\OP{I think this is not finished yet ?}
 
 %----------------------------------------------------------------------------------
 \section{Numerical simulation of the compression\label{sec:NumSim}}
 %----------------------------------------------------------------------------------
 
-In this section, the numerical validation of the previously performed dynamic recrystallization identification will be addressed.
-To achieve this, it is essential to establish a constitutive law capable of accurately predicting the plastic deformation of the material.
-In our prior publication (Tize Mha \eal \cite{TizeMha-2023}), a comparison between analytical constitutive laws and neural network based approach was conducted, resulting in the identification of an ANN model as the suitable choice for this material.
-As a result, this section comprises a two-fold focus: firstly, a recapitulation of the ANN based constitutive law identification, as presented in the previous article; and secondly, the integration of this identified ANN model with the JMAK model for predicting dynamic recrystallization behavior.
+In this section, we will focus on numerically validating the previously performed identification of dynamic recrystallization.
+This requires establishing a constitutive law capable of accurately predicting the material's plastic deformation.
+In our previous publication (Tize Mha \eal \cite{TizeMha-2023}), we conducted a comparison between analytical constitutive laws and a neural network-based approach.
+The results revealed an artificial neural network model as the most appropriate option for this material.
+As a result, this section has two main focuses: first, a summary of the ANN-based constitutive law identification, as previously presented; and second, the incorporation of this identified ANN model with the JMAK model to predict dynamic recrystallization behavior.
 
 %----------------------------------------------------------------------------------
 \subsection{Identification of the ANN constitutive law\label{subsec:ANNConstitutiveLaw}}
 %----------------------------------------------------------------------------------
 
 In general terms, flow stress $\sigma$ is a non-linear function of the strain $\varepsilon$, increasing with the strain rate $\mdot\varepsilon$, but decreasing with increasing temperature $T$.
-The model can therefore be described as an elastoplastic model with the influence of strain rate and temperature.
-This type of behavior generally leads to Johnson-Cook \cite{Johnson-1983}, Zerilli Armstrong \cite{Zerilli-1987}, Hansel Spittle \cite{Hensel-1978} or Arrhenius \cite{Sellars-1966} flow law type.
+This model can be described as an elastoplastic model that takes into consideration the influence of temperature and strain rate.
+This type of behavior generally leads to Johnson--Cook \cite{Johnson-1983}, Zerilli--Armstrong \cite{Zerilli-1987}, Hansel--Spittel \cite{Hensel-1978} or Arrhenius \cite{Sellars-1966} flow law type.
 Depending on the nature of the stress-strain relationship, modeling with one or other of these models can take into account the actual behavior of the material at certain strain rates.
-As reported by Tize Mha \eal \cite{TizeMha-2023}, Johnson-Cook, Zerilli Armstrong or Hansel Spittle type models, while providing a more or less faithful reproduction of material behavior at strain rates above $1~\ps$, do not take into account the softening due to DRX visible on experimental curves for strain rates below $1~\ps$ as reported in Figure \ref{fig:RawData}.
-Indeed, for the lowest strain rates, the flow stress $\sigma$ increases with strain $\varepsilon$ up to a value of around $\varepsilon=0.2$ to $0.3$ and then decreases to maintain a more or less constant value until the end of the test.
-Only the Arrhenius model can more or less account for this softening at low strain rates.
+
+As stated in the research conducted by Tize Mha \eal \cite{TizeMha-2023}, the Johnson--Cook, Zerilli--Armstrong, or Hansel--Spittel models provide an estimate of material behavior at strain rates exceeding $1~\ps$, but they neglect the softening due to DRX that is evident on experimental curves for strain rates below $1~\ps$, as presented in Figure \ref{fig:RawData}.
+Indeed, at the lowest strain rates, the flow stress $\sigma$ increases with strain $\varepsilon$ until reaching a value of roughly $\varepsilon=0.2$ to $0.3$. 
+Afterward, it decreases, maintaining a relatively constant value until the end of the compression test.
+The Arrhenius model is the only one that can somewhat explain this softening at low strain rates.
 As proposed by Pantalé \eal \cite{Pantale-2021, Pantale-2023} and Tize Mha \eal \cite{TizeMha-2023}, an effective alternative is to use a flow law defined by an artificial neural network trained directly on experimental data from compression tests.
-Correctly defining the hyperparameters of this neural network (number of hidden layers, number of neurons, activation functions, etc.) allows us to obtain a flow law that faithfully reproduces the data obtained from compression tests.
+Properly defining the hyperparameters of this neural network, such as the number of hidden layers, number of neurons, and activation functions, enables us to obtain a flow law that accurately replicates the data acquired from compression tests.
 
-According to the method proposed by Pantalé \eal \cite{Pantale-2021, Pantale-2023}, we developed in Tize Mha \eal \cite{TizeMha-2023} a two hidden layers ANN based flow law whose general structure is reported in Figure \ref{fig:ANN-2HL}.
-This ANN contains an input layer of three neurons corresponding to the entries of the model ($\varepsilon$, $\mdot\varepsilon$ and $T$), an output layer with one neuron ($\sigma$), and $2$ hidden layers.
-
-All details about the artificial neural network, setup of the experimental data and the training method is reported the paper proposed by Pantalé \cite{Pantale-2023}.
-%Thus, all the neurons of the $k^{th}$ layer are connected to all the neurons of the ($k-1^{th}$) layer, as shown in~Figure~\ref{fig:ANN-2HL}.
+According to the method proposed by Pantalé \eal \cite{Pantale-2021, Pantale-2023}, we have developed a two-hidden-layer artificial neural network based flow law in Tize Mha \eal \cite{TizeMha-2023}. 
+Figure \ref{fig:ANN-2HL} shows the general structure of this ANN. 
+The input layer of the ANN consists of three neurons that correspond to the model inputs, which are $\varepsilon$, $\mdot\varepsilon$, and $T$. 
+The output layer of the ANN contains one neuron representing $\sigma$, while there are two hidden layers.
+All details regarding the artificial neural network, experimental data setup, and training method are detailed in the paper proposed by Pantalé \cite{Pantale-2023}.
 
 \begin{figure}[H]
 \centering
@@ -635,17 +645,18 @@ All details about the artificial neural network, setup of the experimental data 
 \label{fig:ANN-2HL}
 \end{figure}
 
-We again used the Tensorflow library for the development of the training program, and the ADAM optimizer was used for the training phase.
-The provided database presented in Section \ref{subsec:ExperimentalProcedure} consists of $21,030$ quadruplets of strain ($\varepsilon$), strain rate ($\mdot\varepsilon$), temperature ($T$) and stress ($\sigma$) values.
-%The training data were those from the tests presented in Section \ref{sec:ComTestResults} and were composed of $21,030$ quadruplets of ($\varepsilon$, $\mdot\varepsilon$, $T$, $\sigma$) values.
+We again used the Tensorflow library to develop the training program and employed the ADAM optimizer for the training phase.
+The training database, as described in Section \ref{subsec:ExperimentalProcedure}, contains $21,030$ quadruples of values for strain ($\varepsilon$), strain rate ($\mdot\varepsilon$), temperature ($T$), and stress ($\sigma$).
 
-We selected 6 different networks, named 3-$n$-$m$-1, where $n$ is the number of neurons in the first hidden layer and $m$ is the number of neurons in the second hidden layer, to show the importance of selecting the adequate number of neurons in the two layers.
+We selected six different networks, named 3-$n$-$m$-1, where $n$ represents the number of neurons in the first hidden layer and $m$ indicates the number of neurons in the second hidden layer to demonstrate the significance of choosing the appropriate number of neurons in these two layers.
 
-The training was performed on the basis of $5000$ epochs of the experimental dataset.
-It took $40$~min of training on a Dell XPS-13 7390 laptop running Ubuntu 22.04 LTS 64 bits with 16 GB of RAM and an Intel 4-core i7-10510U processor to obtain the converged parameters of the ANN model.
+The training was conducted based on $5,000$ epochs of the experimental dataset.
+It took 40 minutes to train the ANN model on a Dell XPS-13 7390 laptop running Ubuntu 22.04 LTS 64-bit operating system with 16 GB of RAM and an Intel 4-core i7-10510U processor until obtaining the converged parameters.
 
-Figure \ref{fig:ANN-conv} shows the evolution of the training error defined by the $\log_{10}$ of the internal $\RMSE$ during the training phase and Table \ref{tab:Errors} summarizes the final values of this criterion, along with the final values of the $\MARE$ and the $\RMSE$ for the 6 configurations of the neural network.
-On the basis of those results, we have selected the 3-15-7-1 network for further study, as it has the best convergence evolution and the lowest final error values ($\MARE=0.62\%$ and $\RMSE=0.38~\MPa$), while keeping a reasonable number of internal parameters ($N_{int}=180$).
+Figure \ref{fig:ANN-conv} shows the evolution of the training error, defined by the $\log_{10}$ of the internal $\RMSE$, during the training phase.
+Table \ref{tab:Errors} summarizes the final values of this criterion, as well as the final values of the $\MARE$ and the $\RMSE$ for all six neural network configurations.
+Based on these results, the 3-15-7-1 network was chosen for further investigation. 
+This network exhibited the most efficient convergence and achieved the lowest final error values of $\MARE=0.62\%$ and $\RMSE=0.38~\MPa$, while also maintaining a reasonable number of internal parameters ($N_{int}=180$).
 
 \begin{figure}[H]
 \centering
@@ -661,9 +672,9 @@ On the basis of those results, we have selected the 3-15-7-1 network for further
 \begin{tabularx}{\textwidth}{LCCCCCC}
 \toprule
 \textbf{Coefficients} & \textbf{3-7-5-1} & \textbf{3-9-4-1} & \textbf{3-9-5-1} & \textbf{3-9-7-1} & \textbf{3-13-7-1} & \textbf{3-15-7-1} \\
-\hline
-$N_{int}$ & $74$ & $81$ & $92$ & $114$ & $158$ &$180$\\
 \toprule
+$N_{int}$ & $74$ & $81$ & $92$ & $114$ & $158$ &$180$\\
+\hline
 $\log_{10}(\RMSE)$ & $-2.40$ & $-2.42$ & $-2.38$ & $-2.45$ & $-2.50$ & $-2.58$ \\
 $\MARE(\%)$ & $1.13$ & $1.05$ & $1.08$ & $0.91$ & $0.75$ & $0.62$ \\
 $\RMSE(\MPa)$ & $0.59$ & $0.57$ & $0.65$ & $0.55$ & $0.46$ & $0.38$ \\
@@ -678,27 +689,27 @@ $\RMSE(\MPa)$ & $0.59$ & $0.57$ & $0.65$ & $0.55$ & $0.46$ & $0.38$ \\
 \caption{Comparison between the experimental (dots) and predicted (lines) flow stresses $\sigma$ by the 3-15-7-1 ANN model.}
 \label{fig:ANN-3-15-7-1}
 \end{figure}
-This model will be used as the material flow law for the numerical simulations presented in Section \ref{subsec:DRXSimulation}.
+This model will serve as the material flow equation for the numerical simulations discussed in Section \ref{subsec:DRXSimulation}.
 
 %----------------------------------------------------------------------------------
 \subsection{Dynamic recrystallization simulation\label{subsec:DRXSimulation}}
 %----------------------------------------------------------------------------------
 
-In order to assess the effectiveness of the implementation of the DRX model presented in the previous sections, a compression test is simulated in this section.
-For this purpose, the material used for this simulation is a medium-carbon P20 iron alloy, which was used for the identification of this model.
-An axisymmetric Finite Element Method (FEM) model of hot cylinder compression with a height of $15$ mm and a diameter of $5$ mm is used, as shown in Figure \ref{fig:Mesh}.
-The frictional coefficient at the material/Die interface was assumed to be $0.2$ \cite{zhang2019elevated,sun2020kinetique}.
-The mesh consists of 986 CAX4R elements (4-node axisymmetric bi-linear quadrilateral elements with reduced integration and hourglass control).
-The FEM model is simulated using Abaqus/Implicit due to the computation time related to the low strain rates.
-A displacement of $60\%, ~45\%, ~30\%$ and $15\%$ mm of the total height is imposed on the upper part of the cylinder during the compression along the vertical axis of the specimen.
-The radial displacement $u_r$ of the upper part of the specimen is left free, while its axial displacement $u_z$ is imposed.
-The lower part of the cylinder remains fixed during the simulation.
-The effect of reducing the cylinder in combination with strain rate and temperature effect has been also evaluated in this simulation, and conclusions have been drawn.
-For this simulation, three temperatures ($1050\celsius$, $1150\celsius$, and $1250\celsius$) and four strain rates ($0.001~\ps$, $0.01~\ps$, $0.1~\ps$ and $1.0~\ps$) are considered.
+To evaluate the effectiveness of the DRX model presented earlier, we propose a numerical simulation of a compression test in this section.
+Our simulation concerns a medium-carbon P20 iron alloy, the same material used for the model's identification.
+An axisymmetric Finite Element (FE) model of hot cylinder compression with a height of $h=15$~mm and a diameter of $\phi=10$~mm is used, as shown in Figure \ref{fig:Mesh}.
+The assumed friction coefficient at the material/die interface is $\mu=0.2$ \cite{zhang2019elevated,sun2020kinetics}.
+The mesh is composed of $986$ ($17\times58$) CAX4R elements (4-node axisymmetric bi-linear quadrilateral elements with reduced integration and hourglass control).
+Abaqus/Implicit is used to run the FE model simulation because of the long time needed to simulate a low strain rate compression.
+A displacement of $60\%, ~45\%, ~30\%$ and $15\%$ of the total height is imposed on the upper part of the cylinder along the vertical axis of the specimen during compression.
+The upper and the lower parts of the specimen can slip in the radial direction according to the friction coefficient and the contact conditions. The axial displacement ($u_z$) of the upper part is imposed with a fixed velocity while the axial displacement of the lower part remains fixed during the simulation.
+The simulation evaluated the impact of reducing the cylinder height with the effects of strain rate and temperature. 
+Conclusions were drawn based on this analysis.
+The simulation considered three temperatures ($1050\degree$C, $1150\degree$C, and $1250\degree$C) and four strain rates ($0.001~\ps$, $0.01~\ps$, $0.1~\ps$, and $1.0~\ps$).
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\columnwidth]{Figures/CyCompression2}
-\caption{Numerical model for the compression test}
+\includegraphics[height=0.7\columnwidth]{Figures/CyCompression2}
+\caption{Numerical FE model for the simulation of the compression test.}
 \label{fig:Mesh}
 \end{figure}
 
@@ -706,58 +717,62 @@ For this simulation, three temperatures ($1050\celsius$, $1150\celsius$, and $12
 \subsubsection{Temperature and strain rate effects \label{subsec:TempSReffect}}
 %----------------------------------------------------------------------------------
 
-Temperature and strain rate play a crucial role in influencing dynamic recrystallization in materials, particularly for metals and alloys in the sense that they lead to the formation of new grains within the material.
-Indeed, higher temperature and low strain rate generally lead to increased nucleation rates and faster growth rates of new grains during dynamic recrystallization while in opposite lower temperature and higher strain rate lead to imcomplete dynamic recrystallization.
-At elevated temperatures, the mobility of atoms and dislocations is enhanced, allowing for the creation of new grain boundaries and the growth of new grains.
-This results in a finer and more equiaxed grain structure.
-Also, higher temperatures can lead to a higher fraction of recrystallized material because the enhanced mobility of dislocations promotes the formation of new grains.
-This can result in a significant change in the microstructure and mechanical properties of the material.
-Figure \ref{fig:TempEffect} and Figure \ref{fig:SREffect} illustrate the simulated results of the DRX fraction of P20 steel under varying deformation conditions.
-Figure \ref{fig:TempEffect} illustrates that as the temperature rises, the scope of dynamic recrystallization expands.
-The gradual rise in the dynamic recrystallization fraction within the center is evident, spreading outward.
-This expansion is attributed to heightened thermal activation and increased atomic diffusion at elevated temperatures, rendering the material more susceptible to dynamic recrystallization.
-The $X_{drx}$ clearly increases with increasing temperature and reduction.
+Temperature and strain rate are critical factors that influence dynamic recrystallization in materials, particularly metals and alloys. 
+This process leads to the formation of new grains within the material. 
+Higher temperatures and lower strain rates typically result in increased nucleation rates and faster growth rates of new grains during dynamic recrystallization. 
+Conversely, lower temperatures and higher strain rates can lead to incomplete dynamic recrystallization.
+At high temperatures, the increased mobility of both atoms and dislocations facilitates the formation of fresh grain boundaries and promotes the growth of new grains, resulting
+in a more refined and isotropic grain structure.
+In addition, higher temperatures can raise the proportion of recrystallized material, with the enhanced dislocation mobility contributing to new grain creation.
+Consequently, this may result in a substantial change of the microstructure and the mechanical properties of the material.
+Figure \ref{fig:TempEffect} and Figure \ref{fig:SREffect} display the simulated results of the DRX fraction of P20 steel under different deformation conditions.
+Figure \ref{fig:TempEffect} shows that as the temperature increases, the extent of dynamic recrystallization widens.
+The gradual increase in the dynamic recrystallization fraction in the center is noticeable, spreading outward.
+This expansion is a result of higher thermal activation and increased atomic diffusion at higher temperatures, which makes the material more vulnerable to dynamic recrystallization.
+The dynamic recrystallization degree ($X_{drx}$) unequivocally grows with the increase in temperature and reduction.
 At $45\%$ and $60\%$ reduction, the $X_{drx}$ of P20 steel
-reached $100\%$ in the central part of the specimen for all the initial sample temperatures.
+attained $100\%$ in the center of the specimen at all the initial sample temperatures.
 Indeed, the plastic deformation of a material is accompanied by the creation of dislocations.
-These dislocations represent a "store of elastic energy".
-When the temperature is high enough, the dislocations become spontaneously mobile and cause a reorganisation of the crystal structure, in two stages: restoration and recrystallisation.
-The nature of the phases does not change (those that are thermodynamically stable), the atoms keep the same lattice, but the grain boundaries and the orientation of the crystallites change.
+These dislocations represent a "storage of elastic energy".
+When the temperature is high enough, the dislocations become spontaneously mobile and cause a reorganization of the crystal structure in two stages: restoration and recrystallization.
+The nature of the phases remains unchanged (those that are thermodynamically stable), and the atoms retain the same lattice. 
+However, the grain boundaries and the orientation of the crystallites undergo changes.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.98\columnwidth]{Figures/Temp_DRX}
+\includegraphics[height=0.6\columnwidth]{Figures/Temp_DRX}
 \caption{$X_{drx}$ values at a strain rate of $0.01~\ps$ for different reductions and initial temperatures.}
 \label{fig:TempEffect}
 \end{figure}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.98\columnwidth]{Figures/SR_DRX}
+\includegraphics[height=0.6\columnwidth]{Figures/SR_DRX}
 \caption{$X_{drx}$ values at a fixed $T_0=1150\celsius$ for different reductions and strain rates.}
 \label{fig:SREffect}
 \end{figure}
 
-The temperature at which these phenomena occur depends on the rate of deformation: the more a material is deformed, the more elastic energy it 'stores', so the earlier (at a lower temperature) restoration and recrystallisation will begin.
-According to Figure \ref{fig:SREffect}, the magnitude of dynamic recrystallization diminishes with escalated strain rates, leading to a reduction in the extent of recrystallization.
-This outcome is attributed to the accelerated pace of deformation at higher strain rates, elevating the critical strain and lowering the likelihood of internal dynamic recrystallization within the material.
+The temperature at which these phenomena occur depends on the rate of deformation. 
+The amount of elastic energy stored by a material increases with the degree of deformation, initiating restoration and recrystallization at a lower temperature.
+As shown in Figure \ref{fig:SREffect}, escalating strain rates result in a decrease in the extent of recrystallization due to reduced dynamic recrystallization magnitude.
+This result is due to the faster strain rate, which increases the critical strain and decreases the chance of internal dynamic recrystallization in the material.
 
 %----------------------------------------------------------------------------------
 \subsubsection{Experimental validation \label{subsec:ExpValid}}
 %----------------------------------------------------------------------------------
 
-In this section, a comparison beteween experimental and simulation will be carried out.
-Indeed, the percentage of dynamic recrystallization of selected regions is observed and then compared to the simulation.
-The Figure \ref{fig:expNumDRX} presents a comparison between experimental data and simulation for a test conducted at a temperature of $1150\celsius$ with a deformation strain rate $0.01~\ps$.
-Five zones have been selected to observe the percentage of recrystallization, which varies between $5\%$ and $100\%$.
-In fact, $5\%$ corresponds to the value associated with the dead zone; which is the contact between the sample and die exposed to friction effects.
-On the other hand, $100\%$ corresponds to the value observed at the center of the sample, where deformation is higher.
-In the center of the sample, the temperature is high, leading to a significant accumulation of energy.
-Conversely, at the edges of the sample, a relatively complete recrystallization is observed because the temperature during deformation migrates from the center towards the outer regions of the piece, enabling recrystallization to take place.
-Microscopic observations corresponding to each zone reveal large grains (Figure \ref{fig:expNumDRX} (d)) in the dead zone, whereas small grains (Figure \ref{fig:expNumDRX} (a)) are observed at the center of the sample, resulting from complete recrystallization.
+In this section, we will compare experimental and simulation data by observing the dynamic recrystallization percentage of selected regions.
+Figure \ref{fig:expNumDRX} shows the comparison between experimental data and simulation data for a test conducted at a temperature of $1150\celsius$ with a deformation strain rate of $0.01~\ps$.
+Five zones were chosen to observe the percentage of recrystallization, ranging from $5\%$ to $100\%$.
+The $5\%$ corresponds to the dead zone, representing the contact area between the sample and die experiencing friction effects.
+In contrast, $100\%$ corresponds to the value observed at the center of the sample where deformation is the highest.
+The temperature is elevated at the center of the sample, leading to a significant accumulation of energy.
+Conversely, at the edges of the sample, a relatively complete recrystallization is observed. This is because the temperature during deformation shifts from the center towards the outer regions of the piece, allowing recrystallization to occur.
+Microscopic observations of each zone show large grains (Figure \ref{fig:expNumDRX} (d)) in the dead zone, while small grains (Figure \ref{fig:expNumDRX} (a)) are observed in the center of the sample, resulting from complete recrystallization.
+\OP{Is it possible to have a table of comparison between the num and exp values of $X_{drx}$?}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.98\columnwidth]{Figures/expNumDRX}
-\caption{Experimental and numerical $X_{drx}$ values for $T_0=1150\celsius$ and strain rate $\mdot{\varepsilon}=0.01~\ps$. \textcolor{red}{to see if I will remplace these pictures by new ones...}}
+\caption{Experimental and numerical $X_{drx}$ values for $T_0=1150\celsius$ and strain rate $\mdot{\varepsilon}=0.01~\ps$. \OP{Please, enhance and finalize this figure}}
 \label{fig:expNumDRX}
 \end{figure}
 
@@ -765,20 +780,20 @@ Microscopic observations corresponding to each zone reveal large grains (Figure 
 \section{Conclusions\label{sec:Conclusions}}
 %----------------------------------------------------------------------------------
 
-In this study, we have harnessed the capabilities of ANN technique to gain a profound understanding of the dynamic recrystallization process and its evolution under varying conditions.
-The integration of ANN modeling, fundamental material models, simulation software, and experimental validation has led to a comprehensive framework that contributes significantly to the field of materials science and engineering.
-Initially, we successfully employed a ANN model to fit flow stress curves, enabling the prediction of critical conditions using the Poliak model.
-Doing this has allowed us to accurately anticipate the conditions at which the DRX process initiates, providing an invaluable tool for anticipating material behavior under specific deformation scenarios.
+In this study, we used the abilities of the ANN technique to deeply comprehend the dynamic recrystallization process and its adaptations in varying conditions.
+Through the fusion of ANN modeling, fundamental material models, simulation software, and experimental confirmation, a comprehensive framework has been created that greatly enhances the materials science and engineering field.
+Initially, we successfully used an ANN model to efficiently filter flow stress curves, which enabled us to predict critical conditions using the Poliak model.
+This allows us to accurately anticipate the conditions at which the DRX process begins, providing a valuable tool for predicting material behavior under specific deformation scenarios.
 
-We harnessed the predicted critical conditions to feed into the JMAK model and by doing so, we achieved the prediction of the DRX volumic fraction, thereby offering insights into the kinetics and mechanisms governing recrystallization.
-This integration bridges the gap between theoretical models and real-world phenomena, offering a deeper understanding of the intricate processes taking place during deformation.
-Taking our investigation further, we have seamlessly integrated the JMAK model into the ABAQUS software, a widely-used platform for simulation and analysis.
-Through this integration, we were able to simulate the evolution of DRX during hot compression tests, capturing the process's response to varying conditions.
-By comparing our simulation results with experimental data and employing microstructure analysis, we validated the accuracy of our simulations and affirmed the efficacy of our predictive models.
+We used the predicted critical conditions to input into the JMAK model, resulting in the successful prediction of the volumetric fraction of DRX and providing valuable insights into the kinetics and mechanisms controlling recrystallization.
+This incorporation establishes a connection between theoretical models and practical phenomena, ultimately leading to a more profound comprehension of the complex processes occurring during deformation.
+Taking our investigation further, we integrated the JMAK model into the widely-used ABAQUS software to simulate the evolution of DRX during hot compression tests. 
+This allowed us to capture the process's response to varying conditions without bias.
+By comparing our simulation results with experimental data and using microstructure analysis, we have validated the accuracy of our simulations and confirmed the effectiveness of our predictive models.
 
-It is important to note that while our research marks a significant milestone, it also presents opportunities for future exploration.
-Fine-tuning our model, expanding our dataset, and refining the integration process can further enhance the accuracy and applicability of our predictions.
-Moreover, the successful linkage of theory, simulation, and experimentation provides a robust framework for tackling complex material behavior challenges in industries spanning from manufacturing to aerospace.
+It is noteworthy that although our research represents a significant milestone, it also presents opportunities for future exploration.
+Further enhancing the accuracy and applicability of our predictions can be achieved by fine-tuning our model, expanding our dataset, and refining the integration process.
+Moreover, the successful connection of theory, simulation, and experimentation offers a sturdy structure for addressing challenging material behavior issues in industries ranging from manufacturing to aerospace.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Patents}
@@ -844,7 +859,7 @@ CPU & Central processing unit \\
 DRC & Dynamic recovery\\
 DRX & Dynamic recrystallization \\
 $X_{drx}^{e,p}$ & DRX's Volume fraction : $e, p$ for experimental and prediction respectively \\
-FEA & Finite element analysis \\
+FE  & Finite Element \\
 HS  & Hansel--Spittel \\
 JC  & Johnson--Cook \\
 MZA & Modified Zerilli--Armstrong \\
@@ -865,6 +880,7 @@ ZA  & Zerilli--Armstrong
 \begin{adjustwidth}{-\extralength}{0cm}
 %\printendnotes[custom] % Un-comment to print a list of endnotes
 
+\OP{Check bibliography for errors and add doi for all references}
 \reftitle{References}
 
 % Please provide either the correct journal abbreviation (e.g. according to the “List of Title Word Abbreviations” http://www.issn.org/services/online-services/access-to-the-ltwa/) or the full name of the journal.
