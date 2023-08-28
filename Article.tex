@@ -119,9 +119,10 @@
 \newcommand{\orcidauthorB}{0000-0002-1522-2787}
 \newcommand{\orcidauthorC}{0000-0002-5360-5121}
 \newcommand{\orcidauthorD}{0000-0002-0815-1984}
+\newcommand{\orcidauthorE}{0009-0004-1420-7552}
 
 % Authors, for the paper (add full first names)
-\Author{Pierre Tize Mha $^{1}$\orcidD{}, Prashant Dhondapure $^{2}$, Mohammad Jahazi $^{2}$\orcidB{}, Amèvi Tongne $^{1}$\orcidC{} and Olivier Pantalé $^{1,}$*\orcidA{}}
+\Author{Pierre Tize Mha $^{1}$\orcidD{}, Prashant Dhondapure $^{2}$\orcidE{}, Mohammad Jahazi $^{2}$\orcidB{}, Amèvi Tongne $^{1}$\orcidC{} and Olivier Pantalé $^{1,}$*\orcidA{}}
 
 %\longauthorlist{yes}
 
@@ -230,7 +231,7 @@ Additionally, it decreases the total strain energy, resulting in a more uniform 
 
 During high-rate hot deformation, dislocation density typically rises while a dynamic recovery (DRC) helps to mitigate such increases.
 DRX occurs when the dislocation density rises to an extent beyond the DRC’s accommodation.
-This is especially true for low and medium stacking fault energies \OP{what is it?} in fcc metals.\OPP{can you explain what you mean?}
+This is especially true for low and medium stacking fault energies \OP{what is it?} \textcolor{red}{mettalurgical phenomena that occurs when there is a deviation from the regular arrangement of atoms in a crystal's structure, I explained it more in details in Chapter 1 of my thesis} in fcc metals.\OPP{can you explain what you mean?}\textcolor{red}{These previous sentenses help to understand the DRX's initiation}.
 Therefore, understanding the critical conditions for dynamic recrystallization (DRX) is important for modeling industrial processes.
 However, the extent of DRX is influenced by factors such as material composition, deformation temperature, strain rate, and degree of deformation.
 DRX is a crucial phenomenon that must be considered and controlled in industrial processes that use hot working to shape metals and alloys into products.
@@ -247,14 +248,14 @@ The onset of dynamic recrystallization (DRX) may be identified through the infle
 This understanding is crucial for materials processing and design purposes.
 
 The DRX phenomenon, based on the inflection point, was first studied by Ryan and McQueen \cite{ryan1989dynamic, ryan1990dynamic, ryan1990flow}.
-They observed the appearance of an inflection point on the $\theta(\sigma)$ \OP{I suggest the following writing: $\theta(\sigma)$ instead of $\theta=f(\sigma)$} curve before the peak stress $\sigma_p$ and attributed the beginning of DRX and the critical conditions to this point.
+They observed the appearance of an inflection point on the $\theta(\sigma)$ \OP{I suggest the following writing: $\theta(\sigma)$ instead of $\theta = f(\sigma)$} \textcolor{red}{Done throughout the paper} curve before the peak stress $\sigma_p$ and attributed the beginning of DRX and the critical conditions to this point.
 Later, Poliak and Jonas \cite{Poliak-1996,ei2003initiation,ei2003critical,jonas2003critical} confirmed the hypothesis of DRX describing the inflection point by demonstrating that it is associated with thermodynamic energy released during dislocation movements.
 This indicates the onset of an additional softening mechanism, in addition to DRC.
 Najafizadeh and Jonas \cite{najafizadeh2006predicting} simplified Poliak and Jonas' thermodynamic model using an analytical technique to determine the critical conditions for initiating DRX.
 Their widely-used approach relies on a third-degree polynomial to describe the curve $\theta(\sigma)$ and the second derivative to identify the critical stress $\sigma_c$ and strain $\varepsilon_c$.
 Once calculated, the critical conditions serve as input data for the Johnson-Mehl-Avrami-Kolmogorov (JMAK) model \cite{Avrami-1939}.
-This model is commonly utilized to estimate the volumetric fraction of dynamic recrystallization $X_{drx}$ during hot working.
-Li \eal \cite{li2015experimental} investigated the DRX properties of micro-alloyed plastic molding steel by utilizing the Avrami kinetics model equation and the Estrin and Mecking mathematical model \cite{estrin1984unified,mecking1981kinetics} to determine essential parameters.
+This model is commonly used to estimate the volumetric fraction of dynamic recrystallization $X_{drx}$ during hot working.
+Li \eal \cite{li2015experimental} investigated the DRX properties of micro-alloyed plastic molding steel by using the Avrami kinetics model equation and the Estrin and Mecking mathematical model \cite{estrin1984unified,mecking1981kinetics} to determine essential parameters.
 
 Zhang \eal \cite{zhang2016kinetics} investigated the DRX behaviors of a medium carbon alloy (CreNieMo steel) using the Avrami kinetics model equation.
 They qualitatively characterized the metallurgical properties based on variations in the Zener-Hollomon parameter.
@@ -266,11 +267,11 @@ Cui \eal \cite{cui2016hot} analyzed DRX by applying the Avrami kinetics model eq
 Recently, Chen \eal \cite{chen2023finite} conducted a Finite Element Analysis of DRX, based on GCr15 microstructure analysis, and found that temperature and strain rate have a significant impact on DRX initiation.
 
 The precision of the critical DRX conditions is closely linked to the method of obtaining the curve $\theta(\sigma)$.
-Using experimental raw data directly does not yield functional curves, thus smoothing the $\sigma(\varepsilon)$ \OP{I suggest the following writing: $\sigma(\varepsilon)$ instead of $\sigma=f(\varepsilon)$} curve as much as possible or approximating it with a polynomial function that can reproduce the curve and deducing the $\theta(\sigma)$ curve from it is commonly used.
+Using experimental raw data directly does not yield functional curves, thus smoothing the $\sigma(\varepsilon)$ \OP{I suggest the following writing: $\sigma=f(\varepsilon)$ instead of $\sigma(\varepsilon)$} \textcolor{red}{Done throughout the paper} curve as much as possible or approximating it with a polynomial function that can reproduce the curve and deducing the $\theta(\sigma)$ curve from it is commonly used.
 The drawback of both of these methods is that they do not always ensure a satisfactory smoothing of the curve $\sigma(\varepsilon)$.
 Nevertheless, the Universal Approximator, Artificial Neural Networks (ANN), has demonstrated effectiveness in various domains, such as predicting the flow behavior of materials.
 Hence, this study offers a replacement of the two smoothing methods with an ANN to procure the critical conditions for DRX.
-In other words, the proposed method suggests utilizing an artificial neural network (ANN) to directly model the relationship between stress $\sigma$ and rate hardening $\theta$, removing the need for explicit smoothing of experimental data.
+In other words, the proposed method suggests using an artificial neural network (ANN) to directly model the relationship between stress $\sigma$ and rate hardening $\theta$, removing the need for explicit smoothing of experimental data.
 By properly training the ANN with relevant data, it can learn the underlying relationship between stress and dynamic recrystallization (DRX), ultimately providing a more precise estimation of the critical conditions for DRX.
 
 %----------------------------------------------------------------------------------
@@ -282,14 +283,14 @@ For additional information, readers can refer to the publications by our researc
 Nonetheless, we will outline the key aspects necessary to comprehend the suggested methodology.
 %The first publication focused on developing a constitutive law capable of predicting material flow, for which a comparative study between 5 analytical models and a neural network-based model was conducted.
 %At the conclusion of this comparative study, the Artificial Neural Network (ANN) model proved to be the best performing.
-%In this new study, the ANN model will be utilized for predicting dynamic recrystallization, as explained in the introduction.
+%In this new study, the ANN model will be used for predicting dynamic recrystallization, as explained in the introduction.
 %It's worth noting that the ANN model identified in the first publication will also be employed for managing the plastic behavior of the material.
 
 %----------------------------------------------------------------------------------
 \subsection{Experimental procedure and compression tests results\label{subsec:ExperimentalProcedure}}
 %----------------------------------------------------------------------------------
 
-The material utilized for this study is a medium-carbon steel with the chemical composition presented in Table \ref{tab:Composition}.
+The material used for this study is a medium-carbon steel with the chemical composition presented in Table \ref{tab:Composition}.
 \begin{table}[H]
 \centering
 \caption{Chemical composition of medium carbon steel. Fe = balance.}
@@ -307,7 +308,7 @@ The material utilized for this study is a medium-carbon steel with the chemical 
 Hot compression tests were conducted on cylinders with an initial diameter of $\phi=10$~mm and a height of $h=15$~mm using a Gleeble-3800 thermomechanical simulator.
 The tests were conducted at 5 temperature levels (ranging from $1050\celsius$ to $1250\celsius$) and 6 strain rates (ranging from $0.001~\ps$ to $5~\ps$).
 The imposed displacement was set to $d=6$~mm, resulting in a reduction of $40\%$ of the initial height.
-To reduce friction during testing, thin tantalum sheets were utilized as a lubricant on the contact surface of the anvils and specimens.
+To reduce friction during testing, thin tantalum sheets were used as a lubricant on the contact surface of the anvils and specimens.
 In order to remove thermal gradients, the samples were heated at a speed of $2$\celsius/s until reaching a temperature of $1260\celsius$, then held at that temperature for $5$~minutes.
 They were subsequently cooled down to the test temperature at a speed of $1$\celsius/s and left at a consistent temperature for $1$~minute prior to being formed.
 During compression, the sample temperature is maintained at a constant level through the machine's thermal control system.
@@ -353,8 +354,8 @@ In addition, the cooling phase alters the deformed structure during the descent 
 Hence simpler techniques, like developing analytical models have been implemented.
 Several studies analyzing the initiation of DRX have been conducted with this objective in mind.
 
-In this paper, we will utilize the Johnson-Mehl-Avrami-Kohnogorov (JMAK) phenomenological model \cite{Avrami-1939} to calculate the development of Dynamic Recrystallization (DRX) of the material during deformation.
-The information obtained from the Gleeble thermosimulator will be utilized to identify the material flow law and the parameters of the DRX model.
+In this paper, we will use the Johnson-Mehl-Avrami-Kohnogorov (JMAK) phenomenological model \cite{Avrami-1939} to calculate the development of Dynamic Recrystallization (DRX) of the material during deformation.
+The information obtained from the Gleeble thermosimulator will be used to identify the material flow law and the parameters of the DRX model.
 We obtain the parameters of the JMAK model through a two-step process.
 First, critical stresses and strains are determined using the ANN model to filter curves effectively.
 Then, these critical values are used as input data to calculate parameters in the JMAK model, with the goal of forecasting the volume fraction of dynamic recrystallization.
@@ -406,7 +407,7 @@ So that for a $7-5$ network, $N_{int}=60$.
 \caption{Two hidden layers artificial neural network architecture with 1 input neuron (green) and 1 output neuron (red).}
 \label{fig:ANN-7-5}
 \end{figure}
-The Python program utilized for training the neural network was created with the dedicated Python library, Tensorflow \cite{Abadi-2016}.
+The Python program used for training the neural network was created with the dedicated Python library, Tensorflow \cite{Abadi-2016}.
 The training phase employed the Adaptive Moment Estimation (ADAM) optimizer \cite{Kingma-2015}.
 
 %----------------------------------------------------------------------------------
@@ -434,23 +435,23 @@ and the root-mean-squared error ($\RMSE$) defined by Equation (\ref{eq:RMSE}):
 where $\sigma_i^e$ is the experimental value, $\sigma_i^p$ is the value of the stress $\sigma$ predicted using the given model, and $N$ is the total number of data points used to compute those coefficients.
 For the proposed ANN filter $\RMSE=0.093~\MPa$ and $\MARE=0.231~\%$, while using a $11^{th}$ order polynomial fit of the experimental data leads to $\RMSE=0.120~\MPa$ and $\MARE=0.275~\%$.
 
-It is evident that utilizing the ANN model to depict the $\sigma(\varepsilon)$ curve is superior to using an $11^{th}$ order polynomial fit, as demonstrated by the lower estimated error.
-Thus, this architecture of the ANN model is utilized for all subsequent curves, resulting in the deduction of the hardening $\theta(\sigma)$ curves, which illustrate the stress change rate relative to strain ($\frac{\partial \sigma}{\partial \varepsilon}$).
-An example of calculating the hardening curve for a single temperature is presented in Figure \ref{fig:AnnTheta}, while an overview of the remaining temperatures can be found in Figure \ref{fig:nThetaOP}. \OP{Have to improve this later.}
+It is evident that using the ANN model to depict the $\sigma(\varepsilon)$ curve is superior to using an $11^{th}$ order polynomial fit, as demonstrated by the lower estimated error.
+Thus, this architecture of the ANN model is used for all subsequent curves, resulting in the deduction of the hardening $\theta(\sigma)$ curves, which illustrate the stress change rate relative to strain ($\frac{\partial \sigma}{\partial \varepsilon}$).
+An example of calculating the hardening curve for a single temperature is presented in Figure \ref{fig:AnnTheta}, while an overview of the remaining temperatures can be found in Figure \ref{fig:nThetaOP}. \OP{Have to improve this later} \textcolor{red}{Okay}.
 The identical process applies to all 20 stress/strain curves.
 These curves deliver essential data regarding the critical stresses and strains required for predicting DRX in the subsequent analysis.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\columnwidth]{Figures/AnnTheta}
-\caption{Computation of the hardening curve $\theta(\sigma)$ from the stress/strain data using the ANN for $\mdot\varepsilon=0.001~\ps$ and $T=1050\celsius$.\OP{Caption changed}}
+\caption{Computation of the hardening curve $\theta(\sigma)$ from the stress/strain data using the ANN for $\mdot\varepsilon=0.001~\ps$ and $T=1050\celsius$.\OP{Caption changed} \textcolor{red}{Okay}}
 \label{fig:AnnTheta}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.99\columnwidth]{Figures/nThetaOP}
-\caption{Work hardening computation for $1$ strain rate and $5$ temperatures. \OP{Im' not sure that this caption is related to the current figure.}}
+\caption{Work hardening computation for $1$ strain rate and $5$ temperatures. \OP{Im' not sure that this caption is related to the current figure.} \textcolor{red}{As the results provided by Olivier using an ANN model for each curve are not too much far from those obtained using a single ANN model, I've kept just the Figure directly obtained using a single ANN to illustrate the inflection points. This is for illustrative purposes only, as the critical values used for the rest of the calculation are those based on one ANN model for each curve}.}
 \label{fig:nThetaOP}
 \end{figure}
 
@@ -460,12 +461,12 @@ These curves deliver essential data regarding the critical stresses and strains 
 
 As described previously, dynamic recrystallization only occurs when a particular critical condition is met.
 The identification of these critical conditions is a difficult task that calls for the creation of models that can compute the corresponding critical stress and strain.
-Consequently, the Poliak and Jonas \cite{Poliak-1996,ei2003initiation,ei2003critical,jonas2003critical} method, which is currently well-regarded, will be utilized in this investigation.
-The method utilizes a third-degree polynomial function to describe the $\theta(\sigma)$ and $\ln \theta(\varepsilon)$ curves reported in Figure \ref{fig:nThetaOP} for $\mdot\varepsilon=0.001~\ps$.
+Consequently, the Poliak and Jonas \cite{Poliak-1996,ei2003initiation,ei2003critical,jonas2003critical} method, which is currently well-regarded, will be used in this investigation.
+The method uses a third-degree polynomial function to describe the $\theta(\sigma)$ and $\ln \theta(\varepsilon)$ curves reported in Figure \ref{fig:nThetaOP} for $\mdot\varepsilon=0.001~\ps$.
 The objective is to locate the inflection points connected to the critical stress $\sigma_c$ and critical strain $\varepsilon_c$, as well as to extract the peak stress $\sigma_p$ and peak strain $\varepsilon_p$ from those curves.
 
 The determination of critical values is carried out in two consecutive steps for each of the curves.
-Firstly, based on the definition of the $\theta(\sigma)$ curve as depicted in Figure \ref{fig:nThetaOP}, we utilize the polyfit method from the numpy library to determine the optimal values of the constants $a_i$ for a third-degree polynomial function $p(\sigma)$ approximating $\theta(\sigma)$:
+Firstly, based on the definition of the $\theta(\sigma)$ curve as depicted in Figure \ref{fig:nThetaOP}, we use the polyfit method from the numpy library to determine the optimal values of the constants $a_i$ for a third-degree polynomial function $p(\sigma)$ approximating $\theta(\sigma)$:
 \begin{equation}
 p(\sigma) = a_0\sigma^3 + a_1\sigma^2 + a_2\sigma + a_3
 \end{equation}
@@ -479,9 +480,9 @@ q(\varepsilon) = b_0\varepsilon^3 + b_1\varepsilon^2 + b_2\varepsilon + b_3
 \end{equation}
 This later gives the critical strain $\varepsilon_c$ from $\varepsilon_c = -b_1/3b_0$.
 Applying the identical method to the first four strain rates and all temperatures, Table \ref{tab:OPparams} summarizes the critical stress and strain, peak stress, and peak strain.
-Once the critical DRX conditions are established, they can be utilized as input to determine the DRX volume fraction, which will be discussed in the following section.
+Once the critical DRX conditions are established, they can be used as input to determine the DRX volume fraction, which will be discussed in the following section.
 
-\OP{Figure 6 has been removed because I think it is useless.}
+\OP{Figure 6 has been removed because I think it is useless.} \textcolor{red}{Okay}
 %\begin{figure}[H]
 %\centering
 %\includegraphics[width=0.99\columnwidth]{Figures/fThetaOP}
@@ -491,7 +492,7 @@ Once the critical DRX conditions are established, they can be utilized as input 
 
 \begin{table}[h!]
 \centering
-\caption{Critical conditions based on the proposed approach.\OP{Caption changed}}\vspace{-1mm}
+\caption{Critical conditions based on the proposed approach.\OP{Caption changed} \textcolor{red}{Okay}}\vspace{-1mm}
 \begin{tabular}{cccccc}
 \toprule
 $\mdot{\varepsilon}$ ($\ps$) & $T$ (\celsius) & $\varepsilon_p$ & $\sigma_p$ (MPa) &  $\varepsilon_c$ & $\sigma_c$ (MPa) \\
@@ -530,16 +531,16 @@ $1$ & $1150$ & $0.700$ & $89.525$ & $0.268$ & $89.067$\\
 
 The DRX process commences at a critical deformation, as previously noted. 
 The degree of recrystallization can be determined through experimental means.
-Figure \ref{fig:DRXschema} depicts three phases of recrystallization: nucleation, grain growth, and grain coalescence. \OP{REF ?}
+Figure \ref{fig:DRXschema} depicts three phases of recrystallization: nucleation, grain growth, and grain coalescence  \cite{wan2017experimental}. \OP{REF ?} \textcolor{red}{Done}
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.7\columnwidth]{Figures/picDRX}
-\caption{Diagramme des trois étapes de la DRX \cite{wan2017experimental}\OP{Is it a copy/paste from a publication? If so, you can't put it as it!}}
+\caption{Schematic diagram of three stages during DRX, nucleation, nucleus growth and grain contact \cite{wan2017experimental}. \OP{Is it a copy/paste from a publication? If so, you can't put it as it!} \textcolor{red}{Of course it was taken from publication as reference is mentioned. Please, I will appreciate if you could rearrange it as it would have been made. Thanks !}}
 \label{fig:DRXschema}
 \end{figure}
 The flow stress curve of the material is influenced by the rate of work hardening, which in turn is affected by dislocations within the free grains.
-The predicted volumetric fraction of the dynamic recrystallization ($X_{drx}^{p}$) is estimated using the Avrami model \OP{REF?}, commonly known as the JMAK model, expressed by the following equation:
+The predicted volumetric fraction of the dynamic recrystallization ($X_{drx}^{p}$) is estimated using the Avrami model  \cite{wan2017experimental} \OP{REF?} \textcolor{red}{Done}, commonly known as the JMAK model, expressed by the following equation:
 \begin{equation}
 X_{drx}^{p} = 1 - \exp\left[ -k\left(\frac{\varepsilon - \varepsilon_c}{\varepsilon_p}\right)^{n_k}\right]
 \label{eq:drxpred}
@@ -550,8 +551,8 @@ X_{drx}^{e} = \frac{\sigma_p-\sigma}{\sigma_p-\sigma_{s}}
 \label{eq:drxexp}
 \end{equation}
 
-Where $\sigma_p$ and $\sigma_s$ are the peak stress and the steady stress after the peak stress respectively. \OP{Please define steady stress after the peak stress}
-It is possible to establish a dependency relationship between these specific stresses/strains and the Zener-Hollomon parameter $Z = \mdot\varepsilon \exp{\left(\frac{Q}{RT}\right)} \label{eq:ArZ}$, \OP{Who wrote this? REF?} according to the following equation:
+Where $\sigma_p$ and $\sigma_s$ are the peak stress and the steady stress after the peak stress respectively. \OP{Please define steady stress after the peak stress} \textcolor{red}{The steady stress is considered as the minimum one after the peak stress}
+It is possible to establish a dependency relationship between these specific stresses/strains and the Zener-Hollomon parameter $Z = \mdot\varepsilon \exp{\left(\frac{Q}{RT}\right)} \label{eq:ArZ}$, \OP{Who wrote this? REF?} \textcolor{red}{Now references are given before the equation} according to the following equation \cite{chen2014dynamic,li2019effect,wang2021artificial}:
 \begin{equation}
 \begin{cases}
 \varepsilon_c = A_cZ^{n_c} \\ \varepsilon_p = A_pZ^{n_p} \\ \sigma_c = B_cZ^{m_c} \\ \sigma_p = B_pZ^{m_p}\\ \sigma_s = B_sZ^{m_s}
@@ -561,7 +562,7 @@ It is possible to establish a dependency relationship between these specific str
 With the parameters $A_c$, $A_p$, $n_c$, $n_p$, $B_c$, $B_p$, $B_s$, $m_c$, $m_p$, and $m_s$, the specific strains and stresses' dependency on the Zener-Hollomon parameter whose identification is described in this paper later.
 
 The JMAK model's parameter identification involves two main steps, starting with determining the 10 coefficients $A$, $n$, $B$, and $m$.
-Secondly, those coefficients are integrated into equation (\ref{eq:paramsZ}) to be utilized in equations (\ref{eq:drxpred}) and (\ref{eq:drxexp}).
+Secondly, those coefficients are integrated into equation (\ref{eq:paramsZ}) to be used in equations (\ref{eq:drxpred}) and (\ref{eq:drxexp}).
 To calculate these parameters, the curve\_fit method of the scipy library is employed through a Python code.
 These parameter identifications use the critical strains and stresses computed in the preceding sections as input data.
 The curve-fitting method seeks to obtain optimal values for the coefficients by iteratively adjusting them to minimize the gap between predicted and actual critical strains and stresses.
@@ -589,12 +590,12 @@ $0.203678	$& $0.188236$&$0.181822$&$-0.19708$&$0.48632$&$3.36531$\\
 \end{table}
 
 The curves of $X_{drx}(\varepsilon)$ are provided in Figure \ref{fig:nDRX} using the critical conditions calculated by the Poliak method.
-From this figure, it can be observed that the predictions align well with the experimental data, thus demonstrating the validity of the utilized model. \OP{I don't agree!}
+From this figure, it can be observed that the predictions align well with the experimental data, thus demonstrating the validity of the used model. \OP{I don't agree!} \textcolor{red}{Please have a look on Figure \ref{fig:nDRX} for more comprehension}
 These results will therefore be used subsequently in the simulation section.
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.99\columnwidth]{Figures/nDRX}
-\caption{Comparison between DRX experimental data and JMAK model based prediction. \OP{I don't see the comparison? Is there many superposed curves ???}}
+\includegraphics[width=0.99\columnwidth]{Figures/nDRX1}
+\caption{Comparison between DRX experimental data and JMAK model based prediction. \OP{I don't see the comparison? Is there many superposed curves ???} \textcolor{red}{As I said in my previous mail, I was writing the paper like the experimental data are already provided. Everything is okay now, I think !}}
 \label{fig:nDRX}
 \end{figure}
 
@@ -756,7 +757,7 @@ Microscopic observations corresponding to each zone reveal large grains (Figure 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.98\columnwidth]{Figures/expNumDRX}
-\caption{Experimental and numerical $X_{drx}$ values for $T_0=1150\celsius$ and strain rate $\mdot{\varepsilon}=0.01~\ps$.}
+\caption{Experimental and numerical $X_{drx}$ values for $T_0=1150\celsius$ and strain rate $\mdot{\varepsilon}=0.01~\ps$. \textcolor{red}{to see if I will remplace these pictures by new ones...}}
 \label{fig:expNumDRX}
 \end{figure}
 
@@ -771,7 +772,7 @@ Doing this has allowed us to accurately anticipate the conditions at which the D
 
 We harnessed the predicted critical conditions to feed into the JMAK model and by doing so, we achieved the prediction of the DRX volumic fraction, thereby offering insights into the kinetics and mechanisms governing recrystallization.
 This integration bridges the gap between theoretical models and real-world phenomena, offering a deeper understanding of the intricate processes taking place during deformation.
-Taking our investigation further, we have seamlessly integrated the JMAK model into the ABAQUS software, a widely-utilized platform for simulation and analysis.
+Taking our investigation further, we have seamlessly integrated the JMAK model into the ABAQUS software, a widely-used platform for simulation and analysis.
 Through this integration, we were able to simulate the evolution of DRX during hot compression tests, capturing the process's response to varying conditions.
 By comparing our simulation results with experimental data and employing microstructure analysis, we validated the accuracy of our simulations and affirmed the efficacy of our predictive models.
 
@@ -838,17 +839,18 @@ The following abbreviations are used in this manuscript:\\
 \noindent
 \begin{tabular}{@{}ll}
 ANN & Artificial neural network \\
-AR & Arrhenius \\
+AR  & Arrhenius \\
 CPU & Central processing unit \\
 DRC & Dynamic recovery\\
 DRX & Dynamic recrystallization \\
+$X_{drx}^{e,p}$ & DRX's Volume fraction : $e, p$ for experimental and prediction respectively \\
 FEA & Finite element analysis \\
-HS & Hansel--Spittel \\
-JC & Johnson--Cook \\
+HS  & Hansel--Spittel \\
+JC  & Johnson--Cook \\
 MZA & Modified Zerilli--Armstrong \\
 SRX & Static recrystallization \\
-WH & Work hardening \\
-ZA & Zerilli--Armstrong
+WH  & Work hardening \\
+ZA  & Zerilli--Armstrong
 \end{tabular}
 }
 
