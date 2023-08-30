@@ -150,11 +150,11 @@ $^{2}$ \quad Department of Mechanical Engineering, École de Technologie Supéri
 %\conference{} % An extended version of a conference paper
 
 % Abstract (Do not insert blank lines, i.e. \\)
-\abstract{This study presents a novel and thorough approach to comprehending and simulating the DRX process \textcolor{red}{during} hot-compressing steel.
+\abstract{This study presents a novel and thorough approach to comprehending and simulating the DRX process during hot-compressing steel.
 To achieve this goal, we studied the high-temperature deformation behavior of a medium-carbon steel through hot compression testing on a Gleeble-3800 thermomechanical simulator over a broad range of strains, strain rates, and temperatures.
 We also employed an artificial neural network (ANN) to model thermo-visco-plastic behavior with a flow law.
 The precision of quantifying DRX volume fraction is dependent on critical conditions, which are essential for both analytical model evaluation and numerical implementation in finite element software.
-This study proposes a second ANN, serving as a universal approximator, to fit the data required for DRX critical condition calculations \textcolor{red}{whereas the} Johnson-Mehl-Avrami-Kohnogorov (JMAK) model served as an analytical tool to estimate the DRX volume fraction, which underwent validation through experimental measurements.
+This study proposes a second ANN, serving as a universal approximator, to fit the data required for DRX critical condition calculations whereas the Johnson-Mehl-Avrami-Kohnogorov (JMAK) model served as an analytical tool to estimate the DRX volume fraction, which underwent validation through experimental measurements.
 A numerical implementation of the JMAK model was conducted in ABAQUS software and compared against experimental data by means of microstructure analysis.
 The comparison revealed a strong correlation between simulation and experiment.
 The study investigated the impact of temperature, strain, and strain rate on DRX evolution.
@@ -215,7 +215,7 @@ The findings showed that DRX increases with rising temperature and strain, but d
 \section{Introduction\label{sec:Introduction}}
 %----------------------------------------------------------------------------------
 
-Dynamic recrystallization is a process observed in specific materials, mainly metals and alloys, when undergoing plastic deformation (\textcolor{red}{Meaning : Dynamic recrystallization is a process observed in specific materials, mainly metals and alloys, as they undergo the process of plastic deformation}).
+Dynamic recrystallization is a process observed in specific materials, mainly metals and alloys, as they undergo the process of plastic deformation.
 It is a phenomenon frequently seen in hot working operations, including hot rolling, hot forging, and hot extrusion.
 When a metal or alloy undergoes significant plastic deformation at high temperatures, its existing grain structure is disrupted.
 During the deformation process, new, smaller grains are formed, which is referred to as dynamic recrystallization (DRX).
@@ -229,12 +229,12 @@ As the occurence of the DRX softens the material, the deformation loads during h
 Therefore, understanding the critical conditions for dynamic recrystallization (DRX) is important for modeling industrial processes.
 However, the extent of DRX is influenced by factors such as material composition, deformation temperature, strain rate, and strain.
 By optimizing the parameters, engineers can attain the desired microstructures and mechanical properties in the final product.
-Various techniques have been proposed by researchers to establish DRX's critical conditions such as metallography \cite{babu2022implication} \textcolor{red}{That is an experimental method to evalute DRX volume fraction}.
+Various experimental techniques have been proposed by researchers to establish DRX's critical conditions such as metallographic analysis \cite{babu2022implication}.
 However, this technique requires extensive sampling before and after reaching the critical deformation point at which the material experiences recovery and recrystallization processes, resulting in the formation of new grains and a decrease in the average grain size.
 Additionally, the cooling phase sometimes entails phase changes (depending the material's type) from the hot working temperature, which alter the deformed structure, rendering the metallographic analysis complex.
 Hence, simpler techniques such as the development of analytical models are required to determine DRX initiation.
 In this regard, multiple studies have been carried out aiming to analytically identify the initiation of DRX.
-For instance, Yan Peng \eal \cite{peng2022dynamic}\OP{M.J. suggested that you use another reference (I suggest to use another reference that is only about analytical models for DRX initiation. You could find review papers about this.)} \textcolor{red}{Done !} determined the critical strain and critical stress for the DRX's initiation based on the method proposed by Najafizadeh and Jonas \cite{Najafizadeh-2006} to establish a DRX kinetic model for the hot-rolled condition based on the relationship between the characteristic parameters of DRX and temperature and strain rate. This approach defines the critical stress required for the initiation of DRX during deformation.
+For instance, Yan Peng \eal \cite{peng2022dynamic} determined the critical strain and critical stress for the DRX's initiation based on the method proposed by Najafizadeh and Jonas \cite{Najafizadeh-2006} to establish a DRX kinetic model for the hot-rolled condition based on the relationship between the characteristic parameters of DRX and temperature and strain rate. This approach defines the critical stress required for the initiation of DRX during deformation.
 According to Gottstein \eal \cite{gottstein2004prediction}, the critical strain for initiating DRX can also be predicted based on a work hardening model of dislocation density.
 The onset of dynamic recrystallization (DRX) may be identified through the inflection point in the strain hardening rate $\theta(\sigma)=\frac{\partial \sigma}{\partial \varepsilon}$ where $\sigma$ is the stress and $\varepsilon$ is the strain.
 
@@ -269,11 +269,7 @@ Hence, this study offers a replacement of the two smoothing methods with an ANN 
 
 The experimental tests used in this work are identical to those previously published by Tize Mha \eal \cite{TizeMha-2023}.
 For additional information, readers can refer to the publications by our research group \cite{Pantale-2021, Pantale-2023}.
-Nonetheless, we will outline the key aspects necessary to \textcolor{red}{understand} the suggested methodology.
-%The first publication focused on developing a constitutive law capable of predicting material flow, for which a comparative study between 5 analytical models and a neural network-based model was conducted.
-%At the conclusion of this comparative study, the Artificial Neural Network (ANN) model proved to be the best performing.
-%In this new study, the ANN model will be used for predicting dynamic recrystallization, as explained in the introduction.
-%It's worth noting that the ANN model identified in the first publication will also be employed for managing the plastic behavior of the material.
+Nonetheless, we will outline the key aspects necessary to understand the suggested methodology.
 
 %----------------------------------------------------------------------------------
 \subsection{Experimental procedure and compression tests results\label{subsec:ExperimentalProcedure}}
@@ -294,9 +290,14 @@ The material used for this study is a medium-carbon steel with the chemical comp
 \end{tabularx}
 \label{tab:Composition}
 \end{table}
-\textcolor{red}{Those who want to go deep could read the previous paper as experimental setup is more explained there}
 
-Hot compression tests were conducted on cylinders with an initial diameter of $\phi=10$~mm and a height of $h=15$~mm using a Gleeble-3800 thermomechanical simulator.
+As detailed in Tize Mha \eal \cite{TizeMha-2023}, and reported in Figure \ref{fig:GleebleProcess}, hot compression tests were conducted on cylinders with an initial diameter of $\phi=10$~mm and a height of $h=15$~mm using a Gleeble-3800 thermomechanical simulator.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\columnwidth]{Figures/GleebleProcess}
+\caption{\textls[-25]{Schematic diagram of the experimental process on the Gleeble-3800 thermomechanical simulator.}}
+\label{fig:GleebleProcess}
+\end{figure}
 The tests were conducted at 5 temperature levels (ranging from $1050\celsius$ to $1250\celsius$) and 6 strain rates (ranging from $0.001~\ps$ to $5~\ps$).
 The imposed displacement was set to $d=6$~mm, resulting in a reduction of $40\%$ of the initial height.
 To reduce friction during testing, thin tantalum sheets were used as a lubricant on the contact surface of the anvils and specimens.
@@ -320,7 +321,7 @@ At the lowest strain rates, the flow stress increases up to $\sigma_p$ as the st
 Then, it decreases to maintain a relatively constant value throughout the entire test.
 Conversely, at strain rates above $1~\ps$, the flow stress increases steadily throughout the test.
 The nominal rise in stress observed at low strain rates with large strain values is attributed to friction between the sample and anvil during testing, as noted by Galos \eal \cite{Galos-2022}.
-Furthermore, this frictional effect becomes more apparent as lubrication reduces over time . \textcolor{red}{Previous paper !}
+Furthermore, this frictional effect becomes more apparent as lubrication reduces over time as reported in Tize Mha \eal \cite{TizeMha-2023}.
 
 The initial increase in stress seen during deformation up to $\varepsilon=0.1$ is believed to be due to work hardening (WH).
 After $\varepsilon=0.1$ up to $0.2$, the flow stress indicates a steady decrease as the stress level rises until a peak or inflection point is attained.
@@ -339,20 +340,20 @@ In some materials like aluminum, DRX can counterbalance work hardening, leading 
 However, in many austenitic steels, the kinetics of restoration are feeble, causing DRX to activate at a critical strain accumulation condition.
 Due to DRX's significant impact on the material's flow stress at high temperatures, it unavoidably affects the material's microstructure following hot working.
 Therefore, it is critical to accurately predict the start of DRX to effectively characterize the material.
-Several factors, such as the chemical composition of the material, the grain size before deformation, the mode of deformation, and the \textcolor{red}{physical} parameters (strain rate, temperature, and strain) condition dynamic recrystallization (DRX), which \textcolor{red}{Which is for DRX} can only be triggered once the critical deformation is reached and can be determined via metallography.
-However, this technique necessitates extensive sampling pre- and post-critical deformation.
-In addition, the cooling phase alters the deformed structure during the descent from the hot working temperature, resulting in complicating metallographic analysis \textcolor{red}{During de cooling after deformation, there is phaseS changes in the microstruture which depends on the cooling rate and this can affects SRX}.
+Several factors, such as the chemical composition of the material, the grain size before deformation, the mode of deformation, and the physical parameters (strain rate, temperature, and strain) condition dynamic recrystallization (DRX), can only be triggered once the critical deformation is reached and can be determined via metallography.
+However, this technique necessitates extensive sampling of the pre- and post-critical deformation.
+In addition, during the cooling phase, phase transformations can occur that alter the deformed structure as it descends from the hot working temperature, making metallographic analysis difficult.
 Hence simpler techniques, like developing analytical models have been implemented.
 Several studies analyzing the initiation of DRX have been conducted with this objective in mind.
 
 In this paper, we will use the Johnson-Mehl-Avrami-Kohnogorov (JMAK) phenomenological model \cite{Avrami-1939} to calculate the development of Dynamic Recrystallization (DRX) of the material during deformation.
-The information obtained from the Gleeble thermosimulator will be used to identify the material flow law and the parameters of the DRX model.
+The information obtained from the Gleeble thermosimulator will be used to identify the material flow law and the parameters of the JMAK model.
 We obtain the parameters of the JMAK model through a two-step process.
 First, critical stresses and strains are determined using the ANN model to filter curves effectively.
-Then, these critical values are used as input data to calculate parameters in the JMAK model, with the goal of \textcolor{red}{predicting} the volume fraction of dynamic recrystallization.
+Then, these critical values are used as input data to calculate parameters in the JMAK model, with the goal of predicting the volume fraction of dynamic recrystallization.
 
 %----------------------------------------------------------------------------------
-\subsection{DRX model's parameters identification\label{subsec:DRXParameters} \textcolor{red}{I think We can keep the paper organization like this but I understand what you mean ! thanks !}}
+\subsection{DRX model's parameters identification\label{subsec:DRXParameters}}
 %----------------------------------------------------------------------------------
 
 In this subsection we will determine the critical deformation required to initiate recrystallization.
@@ -374,7 +375,7 @@ This results in multiple possible forms for the $\theta(\sigma)$ function.
 \subsubsection{ANN based filtering model's archicture \label{subsec:ANNbasics}}
 %----------------------------------------------------------------------------------
 
-To enhance the outcomes attained from the critical value identification process, we suggest employing the universal approximator capability of artificial neural networks.
+To improve the results obtained through the process of identifying critical values, we suggest employing the universal approximator capability of artificial neural networks.
 This can be Done ! by characterizing each strain-hardening curve using an ANN with just one input (strain) and one output (stress).
 In this type of network, each layer of neurons is linked to the preceding and subsequent layers through weighted connections.
 Any hidden layer $k$, containing $n$ neurons, takes a weighted sum of the outputs $\overrightarrow{\hat{y}}$ of the immediately preceding layer $(k-1)$, containing $m$ neurons, given by the following~equation:
@@ -417,11 +418,11 @@ As an example, Figure \ref{fig:AnnFit} displays the stress/strain curve experime
 \caption{Filtering of the stress/strain data using the ANN for $\mdot\varepsilon=0.001~\ps$ and $T=1050\celsius$.}
 \label{fig:AnnFit}
 \end{figure}
-The models' accuracy and predictive ability are typically evaluated using specific coefficients, such as the mean absolute relative error ($\MARE$), as defined by Equation (\ref{eq:AARE}):
+The models' accuracy and predictive ability are typically evaluated using specific coefficients, such as the mean absolute relative error ($\MARE$), as defined by the following equation:
 \begin{equation}
 \MARE(\%) = \frac{1}{N} \sum_{i=1}^{N}{\left|\frac{\sigma_i^p -\sigma_i^e}{\sigma_i^e}\right|} \times 100, \label{eq:AARE}
 \end{equation}
-and the root-mean-squared error ($\RMSE$) defined by Equation (\ref{eq:RMSE}):
+and the root-mean-squared error ($\RMSE$) defined by the following equation:
 \begin{equation}
 \RMSE (\MPa) = \sqrt{\frac{1}{N} \sum_{i=1}^{N} \left(\sigma_i^p - \sigma_i^e\right)^2}, \label{eq:RMSE}
 \end{equation}
@@ -584,7 +585,7 @@ $0.203678	$& $0.188236$&$0.181822$&$-0.19708$&$0.48632$&$3.36531$\\
 	\label{fig:nDRX}
 \end{figure}
 
-The critical conditions calculated by the Poliak method are used to provide the curves of $X_{drx}(\varepsilon)$ in Figure \ref{fig:nDRX} where comparison between experimental and prediction is made for strain rate $\mdot\varepsilon=0.001~\ps$ and three temperature ($1050^\circ$C, $1150^\circ$C and $1250^\circ$C). \OP{Write that comparison is only available for $\mdot\varepsilon=0.001~\ps$ because of availability of exp data. Also check that the color of the dots is on in Figure 7.} \textcolor{red}{Done !}
+The critical conditions calculated by the Poliak method are used to provide the curves of $X_{drx}(\varepsilon)$ in Figure \ref{fig:nDRX} where comparison between experimental and prediction is made for strain rate $\mdot\varepsilon=0.001~\ps$ and three temperature ($1050^\circ$C, $1150^\circ$C and $1250^\circ$C).
 The curves illustrate the changes in predicted volume fractions of DRX with plastic strain and it is evident that the proportion of DRX is strongly affected by strain, temperature, and strain rate values.
 The DRX kinetics exhibit an S-shaped curve, with the DRX volume fraction gradually increasing with strain.
 At a constant temperature and strain, the DRX volume fraction increases with decreasing strain rate.
@@ -756,7 +757,7 @@ The $5\%$ corresponds to the dead zone, representing the contact area between th
 In contrast, $100\%$ corresponds to the value observed at the center of the sample where deformation is the highest.
 The temperature is elevated at the center of the sample, leading to a significant accumulation of energy.
 Conversely, at the edges of the sample, a relatively complete recrystallization is observed.
-This is because the temperature during deformation shifts from the center towards the outer regions of the piece, allowing recrystallization to occur.
+This is because the temperature during deformation shifts from the center towards the upper and lower regions of the piece (due to the fact that the anvils are cooled), allowing recrystallization to occur.
 Microscopic observations of each zone show large grains (Figure \ref{fig:expNumDRX} (d)) in the dead zone, while small grains (Figure \ref{fig:expNumDRX} (a)) are observed in the center of the sample, resulting from complete recrystallization.
 
 \begin{figure}[H]
@@ -776,14 +777,14 @@ Initially, we successfully used an ANN model to efficiently filter flow stress c
 This allows us to accurately anticipate the conditions at which the DRX process begins, providing a valuable tool for predicting material behavior under specific deformation scenarios.
 
 We used the predicted critical conditions to input into the JMAK model, resulting in the successful prediction of the volume fraction of DRX and providing valuable insights into the kinetics and mechanisms controlling recrystallization.
-This incorporation establishes a connection between theoretical models and practical phenomena, ultimately leading to a more \textcolor{red}{deep} comprehension of the complex processes occurring during deformation.
+This incorporation establishes a connection between theoretical models and practical phenomena, ultimately leading to a more deep comprehension of the complex processes occurring during deformation.
 Taking our investigation further, we integrated the JMAK model into the widely-used ABAQUS software to simulate the evolution of DRX during hot compression tests.
-This allowed us to capture the process's response to varying conditions without bias \textcolor{red}{This is related to the architecture of the ANN model, nothing else}.
+This allowed us to capture the process's response to varying conditions without bias.
 By comparing our simulation results with experimental data and using microstructure analysis, we have validated the accuracy of our simulations and confirmed the effectiveness of our predictive models.
 
 It is noteworthy that although our research represents a significant milestone, it also presents opportunities for future exploration.
 Further enhancing the accuracy and applicability of our predictions can be achieved by fine-tuning our model, expanding our dataset, and refining the integration process.
-Moreover, the successful connection of theory, simulation, and experimentation offers a sturdy structure for addressing challenging material behavior issues in industries ranging from manufacturing to aerospace \textcolor{red}{or other applications}.
+Moreover, the successful connection of theory, simulation, and experimentation offers a sturdy structure for addressing challenging material behavior issues in industries ranging from manufacturing to aerospace or other applications.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Patents}
