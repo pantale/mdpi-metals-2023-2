@@ -23,8 +23,8 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="1.6141182"
-     inkscape:cx="325.87453"
-     inkscape:cy="214.6683"
+     inkscape:cx="326.18429"
+     inkscape:cy="214.66829"
      inkscape:window-width="1920"
      inkscape:window-height="1014"
      inkscape:window-x="0"
@@ -931,6 +931,22 @@
          d="m -3.5,-3.5 h 7 v 7 h -7 z"
          transform="translate(1.698e-6)"
          id="path161-5-8-8" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath163-7-30-9-7">
+      <path
+         d="M 40.834864,445.86081 H 421.28941 V 724.75125 H 40.834864 Z"
+         transform="matrix(1.3333333,0,0,-1.3333333,0,989.54191)"
+         id="path163-5-78-6-5" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath161-3-68-3-3">
+      <path
+         d="m -3.5,-3.5 h 7 v 7 h -7 z"
+         transform="translate(1.698e-6)"
+         id="path161-5-8-8-5" />
     </clipPath>
   </defs>
   <g
@@ -4597,16 +4613,16 @@
          id="path162-1-92-1" />
     </g>
     <g
-       id="g162-9-1"
-       clip-path="url(#clipPath163-7-78)"
+       id="g162-9-14-1-9"
+       clip-path="url(#clipPath163-7-30-9-7)"
        transform="matrix(1.6071429,0,0,1.6071429,-165.05124,-477.42504)"
-       style="fill:#bdbd00;fill-opacity:1;stroke:#bbbb00;stroke-opacity:1">
+       style="fill:#bd00bd;fill-opacity:1;stroke:#bb00bb;stroke-opacity:1">
       <path
          d="m 0,-3 c 0.795609,0 1.55874,0.316099 2.12132,0.87868 C 2.683901,-1.55874 3,-0.795609 3,0 3,0.795609 2.683901,1.55874 2.12132,2.12132 1.55874,2.683901 0.795609,3 0,3 -0.795609,3 -1.55874,2.683901 -2.12132,2.12132 -2.683901,1.55874 -3,0.795609 -3,0 -3,-0.795609 -2.683901,-1.55874 -2.12132,-2.12132 -1.55874,-2.683901 -0.795609,-3 0,-3 Z"
-         style="fill:#bdbd00;fill-opacity:1;fill-rule:nonzero;stroke:#bbbb00;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+         style="fill:#bd00bd;fill-opacity:1;fill-rule:nonzero;stroke:#bb00bb;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
          transform="matrix(1.3333333,0,0,-1.3333333,271.84908,315.61511)"
-         clip-path="url(#clipPath161-3-5)"
-         id="path162-1-0" />
+         clip-path="url(#clipPath161-3-68-3-3)"
+         id="path162-1-92-1-1" />
     </g>
   </g>
 </svg>
