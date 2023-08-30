@@ -223,13 +223,13 @@ DRX differs from static recrystallization (SRX) which takes place when there is 
 The amount of energy stored in the metal due to plastic deformation is the driving force behind the DRX process.
 Typically, the newly formed grains are much smaller than the original grains of the undeformed material.
 Their growth is accelerated by the stored energy and high temperatures.
-DRX provides several benefits in the hot forming process by refining the grain size, enhancing the mechanical properties of the material, including strength and toughness \cite{shen2021effect}.
+DRX provides several benefits in the hot forming process by refining the grain size, enhancing the mechanical properties of the material, including strength and toughness \cite{javidikia2023grain, dourandish2022microstructure, shen2021effect}.
 
 As the occurence of the DRX softens the material, the deformation loads during hot deformation must be adjusted from one pass to another to have more accurate prediction of DRX.
 Therefore, understanding the critical conditions for dynamic recrystallization (DRX) is important for modeling industrial processes.
 However, the extent of DRX is influenced by factors such as material composition, deformation temperature, strain rate, and strain.
 By optimizing the parameters, engineers can attain the desired microstructures and mechanical properties in the final product.
-Various experimental techniques have been proposed by researchers to establish DRX's critical conditions such as metallographic analysis \cite{babu2022implication}.
+Various experimental techniques have been proposed by researchers to establish DRX's critical conditions such as metallographic analysis \cite{babu2022implication, khan2021interactions}.
 However, this technique requires extensive sampling before and after reaching the critical deformation point at which the material experiences recovery and recrystallization processes, resulting in the formation of new grains and a decrease in the average grain size.
 Additionally, the cooling phase sometimes entails phase changes (depending the material's type) from the hot working temperature, which alter the deformed structure, rendering the metallographic analysis complex.
 Hence, simpler techniques such as the development of analytical models are required to determine DRX initiation.
@@ -611,7 +611,7 @@ As a result, this section has two main focuses: first, a summary of the ANN-base
 
 In general terms, flow stress $\sigma$ is a non-linear function of the strain $\varepsilon$, increasing with the strain rate $\mdot\varepsilon$, but decreasing with increasing temperature $T$.
 This model can be described as an elastoplastic model that takes into consideration the influence of temperature and strain rate.
-This type of behavior generally leads to Johnson--Cook \cite{Johnson-1983}, Zerilli--Armstrong \cite{Zerilli-1987}, Hansel--Spittel \cite{Hensel-1978} or Arrhenius \cite{Sellars-1966} flow law type.
+This type of behavior generally leads to Johnson--Cook \cite{Johnson-1983}, Zerilli--Armstrong \cite{Zerilli-1987}, Hansel--Spittel \cite{Hensel-1978}, PTM \cite{mha2022generalized} or Arrhenius \cite{Sellars-1966} flow law type.
 Depending on the nature of the stress-strain relationship, modeling with one or other of these models can take into account the actual behavior of the material at certain strain rates.
 
 As stated in the research conducted by Tize Mha \eal \cite{TizeMha-2023}, the Johnson--Cook, Zerilli--Armstrong, or Hansel--Spittel models provide an estimate of material behavior at strain rates exceeding $1~\ps$, but they neglect the softening due to DRX that is evident on experimental curves for strain rates below $1~\ps$, as presented in Figure \ref{fig:RawData}.
