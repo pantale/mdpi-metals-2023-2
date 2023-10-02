@@ -223,38 +223,38 @@ DRX differs from static recrystallization (SRX) which takes place when there is 
 The amount of energy stored in the metal due to plastic deformation is the driving force behind the DRX process.
 Typically, the newly formed grains are much smaller than the original grains of the undeformed material.
 Their growth is accelerated by the stored energy and high temperatures.
-DRX provides several benefits in the hot forming process by refining the grain size, enhancing the mechanical properties of the material, including strength and toughness \cite{javidikia2023grain, dourandish2022microstructure, shen2021effect}.
+DRX provides several benefits in the hot forming process by refining the grain size, enhancing the mechanical properties of the material, including strength and toughness \cite{Javidikia-2023, Dourandish-2022, Shen-2021}.
 
 As the occurrence of the DRX softens the material, the deformation loads during hot deformation must be adjusted from one pass to another to have more accurate prediction of DRX.
 Therefore, understanding the critical conditions for dynamic recrystallization (DRX) is important for modeling industrial processes.
 However, the extent of DRX is influenced by factors such as material composition, deformation temperature, strain rate, and strain.
 By optimizing the parameters, engineers can attain the desired microstructures and mechanical properties in the final product.
-Various experimental techniques have been proposed by researchers to establish DRX's critical conditions such as metallographic analysis \cite{babu2022implication, khan2021interactions}.
+Various experimental techniques have been proposed by researchers to establish DRX's critical conditions such as metallographic analysis \cite{Babu-2022, Khan-2021}.
 However, this technique requires extensive sampling before and after reaching the critical deformation point at which the material experiences recovery and recrystallization processes, resulting in the formation of new grains and a decrease in the average grain size.
 Additionally, the cooling phase sometimes entails phase changes (depending on the material's type) from the hot working temperature, which alter the deformed structure, rendering the metallographic analysis complex.
 Hence, simpler techniques such as the development of analytical models are required to determine DRX initiation.
 In this regard, multiple studies have been carried out aiming to analytically identify the initiation of DRX.
-For instance, Yan Peng \eal \cite{peng2022dynamic} determined the critical strain and critical stress for the DRX's initiation based on the method proposed by Najafizadeh and Jonas \cite{Najafizadeh-2006} to establish a DRX kinetic model for the hot-rolled condition based on the relationship between the characteristic parameters of DRX and temperature and strain rate. This approach defines the critical stress required for the initiation of DRX during deformation.
-According to Gottstein \eal \cite{gottstein2004prediction}, the critical strain for initiating DRX can also be predicted based on a work hardening model of dislocation density.
+For instance, Yan Peng \eal \cite{Peng-2022} determined the critical strain and critical stress for the DRX's initiation based on the method proposed by Najafizadeh and Jonas \cite{Najafizadeh-2006} to establish a DRX kinetic model for the hot-rolled condition based on the relationship between the characteristic parameters of DRX and temperature and strain rate. This approach defines the critical stress required for the initiation of DRX during deformation.
+According to Gottstein \eal \cite{Gottstein-2004}, the critical strain for initiating DRX can also be predicted based on a work hardening model of dislocation density.
 The onset of dynamic recrystallization (DRX) may be identified through the inflection point in the strain hardening rate $\theta(\sigma)=\frac{\partial \sigma}{\partial \varepsilon}$ where $\sigma$ is the stress and $\varepsilon$ is the strain.
 
-The DRX phenomenon, based on the inflection point, was first studied by Ryan and McQueen \cite{ryan1989dynamic, ryan1990dynamic, ryan1990flow}.
+The DRX phenomenon, based on the inflection point, was first studied by Ryan and McQueen \cite{Ryan-1989, Ryan-1990, Ryan-1990-2}.
 They observed the appearance of an inflection point on the $\theta(\sigma)$ curve before the peak stress $\sigma_p$ and attributed the beginning of DRX and the critical conditions to this point.
-Later, Poliak and Jonas \cite{Poliak-1996,Poliak-2003,Poliak-2003-2,jonas2003critical} confirmed the hypothesis of DRX describing the inflection point by demonstrating that it is associated with thermodynamic energy released during dislocation movements and the combination between the current dislocations with the previous one leads to the DRX's initiation.
+Later, Poliak and Jonas \cite{Poliak-1996,Poliak-2003,Poliak-2003-2,Jonas-2003} confirmed the hypothesis of DRX describing the inflection point by demonstrating that it is associated with thermodynamic energy released during dislocation movements and the combination between the current dislocations with the previous one leads to the DRX's initiation.
 Najafizadeh and Jonas \cite{Najafizadeh-2006} simplified Poliak and Jonas' thermodynamic model using an analytical technique to determine the critical conditions for initiating DRX.
 Their widely-used approach relies on a third-degree polynomial to describe the curve $\theta(\sigma)$ and the second derivative to identify the critical stress $\sigma_c$ and strain $\varepsilon_c$.
 Once calculated, the critical conditions serve as input data for the Johnson-Mehl-Avrami-Kolmogorov (JMAK) model \cite{Avrami-1939}.
 This model is commonly used to estimate the volume fraction of dynamic recrystallization $X_{drx}$ during hot working.
-Li \eal \cite{li2015experimental} investigated the DRX properties of micro-alloyed plastic molding steel by using the Avrami kinetics model equation and the Estrin and Mecking mathematical model \cite{estrin1984unified,mecking1981kinetics} to determine the Avrami equation coefficients.
+Li \eal \cite{Li-2015} investigated the DRX properties of micro-alloyed plastic molding steel by using the Avrami kinetics model equation and the Estrin and Mecking mathematical model \cite{Estrin-1984,Mecking-1981} to determine the Avrami equation coefficients.
 
-Zhang \eal \cite{zhang2016kinetics} investigated the DRX behaviors of a medium carbon alloy (Cr-Ni-Mo steel) using the Avrami kinetics model equation.
+Zhang \eal \cite{Zhang-2016} investigated the DRX behaviors of a medium carbon alloy (Cr-Ni-Mo steel) using the Avrami kinetics model equation.
 They qualitatively characterized the metallurgical properties based on variations in the Zener-Hollomon parameter.
-Cho \eal \cite{cho2005prediction} and Razali \eal \cite{razali2021new} used a well-established model to predict the microstructure evolution of a Mn alloy, with a focus on DRX and grain growth phenomena.
+Cho \eal \cite{Cho-2005} and Razali \eal \cite{Razali-2021} used a well-established model to predict the microstructure evolution of a Mn alloy, with a focus on DRX and grain growth phenomena.
 Their results showed consistency with multiple compression tests.
-Wan \eal \cite{wan2017experimental} employed the same equation to predict the microstructure evolution of TiAl-based alloys during hot compression.
-Li \eal \cite{li2018finite} validated the reliability of the Avrami kinetics model equation when testing the compression of Inconel 718 bolts.
-Cui \eal \cite{cui2016hot} analyzed DRX by applying the Avrami kinetics model equation and discovered that the $\beta$-solidifying TiAl alloy usually started evolving at triple joints boundaries before affecting the lamellae.
-Recently, Chen \eal \cite{chen2023finite} conducted a Finite Element Analysis of DRX, based on GCr15 (52100 steel) microstructure analysis, and found that temperature and strain rate have a significant impact on DRX initiation.
+Wan \eal \cite{Wan-2017} employed the same equation to predict the microstructure evolution of TiAl-based alloys during hot compression.
+Li \eal \cite{Li-2018} validated the reliability of the Avrami kinetics model equation when testing the compression of Inconel 718 bolts.
+Cui \eal \cite{Cui-2016} analyzed DRX by applying the Avrami kinetics model equation and discovered that the $\beta$-solidifying TiAl alloy usually started evolving at triple joints boundaries before affecting the lamellae.
+Recently, Chen \eal \cite{Chen-2023} conducted a Finite Element Analysis of DRX, based on GCr15 (52100 steel) microstructure analysis, and found that temperature and strain rate have a significant impact on DRX initiation.
 
 The precision of the critical DRX conditions is closely linked to the method of obtaining the curve $\theta(\sigma)$.
 Using experimental raw data directly does not yield functional curves, thus smoothing the $\sigma(\varepsilon)$ curve as much as possible or approximating it with a polynomial function that can reproduce the curve and deducing the $\theta(\sigma)$ curve from it is commonly used.
@@ -357,9 +357,9 @@ Then, these critical values are used as input data to calculate parameters in th
 %----------------------------------------------------------------------------------
 
 In this subsection we will determine the critical deformation required to initiate recrystallization.
-Ryan and McQueen \cite{ryan1989dynamic, ryan1990dynamic, ryan1990flow} were the pioneers in investigating this phenomenon.
+Ryan and McQueen \cite{Ryan-1989, Ryan-1990, Ryan-1990-2} were the pioneers in investigating this phenomenon.
 Observing the appearance of an inflection point on the curve $\theta(\sigma)=\frac{\partial \sigma}{\partial \varepsilon}$ before the peak stress $\sigma_p$, the start of DRX was attributed to this inflection point, and therefore the critical values of the strain ($\varepsilon_c$) and stress ($\sigma_c$) respectively.
-Later, Poliak and Jonas \cite{Poliak-1996, Poliak-2003, Poliak-2003-2, jonas2003critical} demonstrated that this inflection point is associated with a release of thermodynamic free energy during dislocation motion, supporting the DRX hypothesis.
+Later, Poliak and Jonas \cite{Poliak-1996, Poliak-2003, Poliak-2003-2, Jonas-2003} demonstrated that this inflection point is associated with a release of thermodynamic free energy during dislocation motion, supporting the DRX hypothesis.
 Najafizadeh and Jonas \cite{Najafizadeh-2006} developed an analytical technique to determine the critical conditions for DRX initiation, simplifying the thermodynamic model of Poliak and Jonas.
 Their widely-used approach adopts a $3^\text{rd}$ degree polynomial to describe the curve $\theta(\sigma)$, enabling the identification of critical stress and strain ($\sigma_c$ and $\varepsilon_c$) through the second derivative.
 
@@ -457,7 +457,7 @@ These curves deliver essential data regarding the critical stresses and strains 
 
 As described previously, dynamic recrystallization only occurs when a particular critical condition is met.
 The identification of these critical conditions is a difficult task that calls for the creation of models that can compute the corresponding critical stress and strain.
-Consequently, the Poliak and Jonas \cite{Poliak-1996,Poliak-2003,Poliak-2003-2,jonas2003critical} method, which is currently well-regarded, will be used in this investigation.
+Consequently, the Poliak and Jonas \cite{Poliak-1996,Poliak-2003,Poliak-2003-2,Jonas-2003} method, which is currently well-regarded, will be used in this investigation.
 The method uses a third-degree polynomial function to describe the $\theta(\sigma)$ and $\ln \theta(\varepsilon)$ curves reported in Figure \ref{fig:nThetaOP} for $\mdot\varepsilon=0.001~\ps$.
 The objective is to locate the inflection points connected to the critical stress $\sigma_c$ and critical strain $\varepsilon_c$, as well as to extract the peak stress $\sigma_p$ and peak strain $\varepsilon_p$ from those curves.
 
@@ -519,7 +519,7 @@ $1$ & $1150$ & $0.700$ & $89.525$ & $0.268$ & $89.067$\\
 
 The DRX process commences at a critical deformation, as previously noted.
 The degree of recrystallization can be determined through experimental means.
-Figure \ref{fig:DRXschema} depicts three phases of recrystallization: nucleation, grain growth, and grain coalescence  \cite{wan2017experimental}.
+Figure \ref{fig:DRXschema} depicts three phases of recrystallization: nucleation, grain growth, and grain coalescence \cite{Wan-2017}.
 
 \begin{figure}[!ht]
 \centering
@@ -529,7 +529,7 @@ Figure \ref{fig:DRXschema} depicts three phases of recrystallization: nucleation
 \end{figure}
 
 The flow stress curve of the material is influenced by the rate of work hardening, which in turn is affected by dislocations within the free grains.
-The predicted volume fraction of the dynamic recrystallization ($X_{drx}^{p}$) is estimated using the Avrami model \cite{wan2017experimental}, commonly known as the JMAK model, expressed by the following equation:
+The predicted volume fraction of the dynamic recrystallization ($X_{drx}^{p}$) is estimated using the Avrami model \cite{Wan-2017}, commonly known as the JMAK model, expressed by the following equation:
 \begin{equation}
 X_{drx}^{p} = 1 - \exp\left[ -k\left(\frac{\varepsilon - \varepsilon_c}{\varepsilon_p}\right)^{n_k}\right]
 \label{eq:drxpred}
@@ -542,7 +542,7 @@ X_{drx}^{e} = \frac{\sigma_p-\sigma}{\sigma_p-\sigma_{s}}
 
 Where $\sigma_p$ and $\sigma_s$ are the peak stress and the steady stress after the peak stress respectively.
 The steady stress is considered as the minimum one after the peak stress.
-It is possible to establish a dependency relationship between these specific stresses/strains and the Zener-Hollomon parameter $Z = \mdot\varepsilon \exp{\left(\frac{Q}{RT}\right)} \label{eq:ArZ}$, according to the following equation \cite{chen2014dynamic,li2019effect,wang2021artificial}:
+It is possible to establish a dependency relationship between these specific stresses/strains and the Zener-Hollomon parameter $Z = \mdot\varepsilon \exp{\left(\frac{Q}{RT}\right)} \label{eq:ArZ}$, according to the following equation \cite{Chen-2014,Li-2019,Wang-2021}:
 \begin{equation}
 \begin{cases}
 \varepsilon_c = A_cZ^{n_c} \\ \varepsilon_p = A_pZ^{n_p} \\ \sigma_c = B_cZ^{m_c} \\ \sigma_p = B_pZ^{m_p}\\ \sigma_s = B_sZ^{m_s}
@@ -687,7 +687,7 @@ This model will serve as the material flow equation for the numerical simulation
 To evaluate the effectiveness of the DRX model presented earlier, we propose a numerical simulation of a compression test in this section.
 Our simulation concerns a medium-carbon P20 iron alloy, the same material used for the model's identification.
 An axisymmetric Finite Element (FE) model of hot cylinder compression with a height of $h=15$~mm and a diameter of $\phi=10$~mm is used, as shown in Figure \ref{fig:Mesh}.
-The assumed friction coefficient at the material/die interface is $\mu=0.2$ \cite{zhang2019elevated,sun2020kinetics}.
+The assumed friction coefficient at the material/die interface is $\mu=0.2$ \cite{Zhang-2019,Sun-2020}.
 The mesh is composed of $986$ ($17\times58$) CAX4R elements (4-node axisymmetric bi-linear quadrilateral elements with reduced integration and hourglass control).
 Abaqus/Implicit is used to run the FE model simulation because of the long time needed to simulate a low strain rate compression.
 A displacement of $60\%, ~45\%, ~30\%$ and $15\%$ of the total height is imposed on the upper part of the cylinder along the vertical axis of the specimen during compression.
