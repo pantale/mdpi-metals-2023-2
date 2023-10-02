@@ -307,7 +307,7 @@ During compression, the sample temperature is maintained at a constant level thr
 Subsequently, the structure is frozen at a fast pace in order to preserve the microstructure for future analysis.
 
 The raw stress-strain data is exported from the Gleeble thermomechanical simulator as true stress and true strain, and the set of 30 flow stress curves $\sigma$ versus strain $\varepsilon$ obtained from compression tests for each test condition is reported in Figure \ref{fig:RawData}.
-All strain/stress data is composed of 701 equidistant strain values from $\varepsilon=0.0$ to $\varepsilon=0.7$ in $0.01$ increments.
+All strain/stress data is composed of 701 equidistant strain values from $\varepsilon=0.0$ to $\varepsilon=0.7$ in \textcolor{purple}{$0.001$} increments.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\columnwidth]{Figures/rawData}
@@ -376,7 +376,7 @@ This results in multiple possible forms for the $\theta(\sigma)$ function.
 %----------------------------------------------------------------------------------
 
 To improve the results obtained through the process of identifying critical values, we suggest employing the universal approximator capability of artificial neural networks.
-This can be Done ! by characterizing each strain-hardening curve using an ANN with just one input (strain) and one output (stress).
+This \textcolor{purple}{can be done by characterizing} each strain-hardening curve using an ANN with just one input (strain) and one output (stress).
 In this type of network, each layer of neurons is linked to the preceding and subsequent layers through weighted connections.
 Any hidden layer $k$, containing $n$ neurons, takes a weighted sum of the outputs $\overrightarrow{\hat{y}}$ of the immediately preceding layer $(k-1)$, containing $m$ neurons, given by the following~equation:
 \begin{equation}
@@ -611,7 +611,7 @@ As a result, this section has two main focuses: first, a summary of the ANN-base
 
 In general terms, flow stress $\sigma$ is a non-linear function of the strain $\varepsilon$, increasing with the strain rate $\mdot\varepsilon$, but decreasing with increasing temperature $T$.
 This model can be described as an elastoplastic model that takes into consideration the influence of temperature and strain rate.
-This type of behavior generally leads to Johnson--Cook \cite{Johnson-1983}, Zerilli--Armstrong \cite{Zerilli-1987}, Hansel--Spittel \cite{Hensel-1978}, PTM \cite{mha2022generalized} or Arrhenius \cite{Sellars-1966} flow law type.
+This type of behavior generally leads to Johnson--Cook \cite{Johnson-1983}, Zerilli--Armstrong \cite{Zerilli-1987}, Hansel--Spittel \cite{Hensel-1978}, PTM \textcolor{purple}{\cite{TizeMha-2023}} or Arrhenius \cite{Sellars-1966} flow law type.
 Depending on the nature of the stress-strain relationship, modeling with one or other of these models can take into account the actual behavior of the material at certain strain rates.
 
 As stated in the research conducted by Tize Mha \eal \cite{TizeMha-2023}, the Johnson--Cook, Zerilli--Armstrong, or Hansel--Spittel models provide an estimate of material behavior at strain rates exceeding $1~\ps$, but they neglect the softening due to DRX that is evident on experimental curves for strain rates below $1~\ps$, as presented in Figure \ref{fig:RawData}.
