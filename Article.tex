@@ -90,17 +90,6 @@
 \DeclareRobustCommand{\ps}{\text{s}^{-1}}
 \DeclareRobustCommand{\mr}[2]{\multirow{#1}{*}{#2}}
 \DeclareRobustCommand{\MPa}{\text{MPa}}
-\DeclareRobustCommand{\PTM}[1]{~\begingroup\sethlcolor{green}\textcolor{red}{\hl{\textbf{P.T.M.:} #1}}\endgroup~}
-
-% This is used to add comments into the text
-%
-% Will have to be removed from final version
-%
-\usepackage{soul}
-\usepackage{color}
-\definecolor{VWyellow}{RGB}{255,251,150}
-\DeclareRobustCommand{\OP}[1]{\begingroup\sethlcolor{VWyellow}\textcolor{red}{\hl{\textbf{O.P.:} #1}}\endgroup}
-\DeclareRobustCommand{\OPP}[1]{\begingroup\sethlcolor{VWyellow}\textcolor{red}{\hl{\textbf{O.P.:} In previous sentence #1}}\endgroup}
 
 %=================================================================
 % Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
@@ -336,24 +325,24 @@ and the rate of softening due to DRX slows down at higher strain rates and lower
 The result is that both the peak stress $\sigma_p$ and the onset of steady-state flow occur at higher strain levels.
 The decrease in stress detected across all temperatures and strain rates of $\mdot\varepsilon=0.001-5.0~\ps$ is attributed to the event of dynamic recrystallization (DRX).
 
-\PTM{The following two paragraphs will be removed}
-
-\textcolor{red}{Dynamic recrystallization is a significant phenomenon for regulating a material's microstructural and mechanical properties during hot working.
-In some materials like aluminum, DRX can counterbalance work hardening, leading to a rapid emergence of a plateau.
-However, in many austenitic steels, the kinetics of restoration are feeble, causing DRX to activate at a critical strain accumulation condition.
-Due to DRX's significant impact on the material's flow stress at high temperatures, it unavoidably affects the material's microstructure following hot working.
-Therefore, it is critical to accurately predict the start of DRX to effectively characterize the material.
-Several factors, such as the chemical composition of the material, the grain size before deformation, the mode of deformation, and the physical parameters (strain rate, temperature, and strain) condition dynamic recrystallization (DRX), can only be triggered once the critical deformation is reached and can be determined via metallography.
-However, this technique necessitates extensive sampling of the pre- and post-critical deformation.
-In addition, during the cooling phase, phase transformations can occur that alter the deformed structure as it descends from the hot working temperature, making metallography analysis difficult.
-Hence simpler techniques, like developing analytical models have been implemented.
-Several studies analyzing the initiation of DRX have been conducted with this objective in mind}.
-
-\textcolor{red}{In this paper, we will use the Johnson-Mehl-Avrami-Kohnogorov (JMAK) phenomenological model \cite{Avrami-1939} to calculate the development of Dynamic Recrystallization (DRX) of the material during deformation.
-The information obtained from the Gleeble thermosimulator will be used to identify the material flow law and the parameters of the JMAK model.
-We obtain the parameters of the JMAK model through a two-step process.
-First, critical stresses and strains are determined using the ANN model to filter curves effectively.
-Then, these critical values are used as input data to calculate parameters in the JMAK model, with the goal of predicting the volume fraction of dynamic recrystallization}.
+%\PTM{The following two paragraphs will be removed}
+%
+%\textcolor{purple}{Dynamic recrystallization is a significant phenomenon for regulating a material's microstructural and mechanical properties during hot working.
+%In some materials like aluminum, DRX can counterbalance work hardening, leading to a rapid emergence of a plateau.
+%However, in many austenitic steels, the kinetics of restoration are feeble, causing DRX to activate at a critical strain accumulation condition.
+%Due to DRX's significant impact on the material's flow stress at high temperatures, it unavoidably affects the material's microstructure following hot working.
+%Therefore, it is critical to accurately predict the start of DRX to effectively characterize the material.
+%Several factors, such as the chemical composition of the material, the grain size before deformation, the mode of deformation, and the physical parameters (strain rate, temperature, and strain) condition dynamic recrystallization (DRX), can only be triggered once the critical deformation is reached and can be determined via metallography.
+%However, this technique necessitates extensive sampling of the pre- and post-critical deformation.
+%In addition, during the cooling phase, phase transformations can occur that alter the deformed structure as it descends from the hot working temperature, making metallography analysis difficult.
+%Hence simpler techniques, like developing analytical models have been implemented.
+%Several studies analyzing the initiation of DRX have been conducted with this objective in mind}.
+%
+%\textcolor{purple}{In this paper, we will use the Johnson-Mehl-Avrami-Kohnogorov (JMAK) phenomenological model \cite{Avrami-1939} to calculate the development of Dynamic Recrystallization (DRX) of the material during deformation.
+%The information obtained from the Gleeble thermosimulator will be used to identify the material flow law and the parameters of the JMAK model.
+%We obtain the parameters of the JMAK model through a two-step process.
+%First, critical stresses and strains are determined using the ANN model to filter curves effectively.
+%Then, these critical values are used as input data to calculate parameters in the JMAK model, with the goal of predicting the volume fraction of dynamic recrystallization}.
 
 %----------------------------------------------------------------------------------
 \subsection{DRX model's parameters identification\label{subsec:DRXParameters}}
@@ -375,11 +364,11 @@ But, depending on the degree of the polynomial and for the same stress/strain cu
 This results in multiple possible forms for the $\theta(\sigma)$ function.
 
 %----------------------------------------------------------------------------------
-\subsubsection{ANN based filtering model's archicture \label{subsec:ANNbasics}}
+\subsubsection{ANN based filtering model's \textcolor{purple}{architecture} \label{subsec:ANNbasics}}
 %----------------------------------------------------------------------------------
 
 To improve the results obtained through the process of identifying critical values, we suggest employing the universal approximator capability of artificial neural networks.
-This \textcolor{purple}{can be done by characterizing} each strain-hardening curve using an ANN with just one input (strain) and one output (stress).
+\textcolor{purple}{This can be done by characterizing each strain-hardening curve using an ANN with just one input (strain) and one output (stress).}
 In this type of network, each layer of neurons is linked to the preceding and subsequent layers through weighted connections.
 Any hidden layer $k$, containing $n$ neurons, takes a weighted sum of the outputs $\overrightarrow{\hat{y}}$ of the immediately preceding layer $(k-1)$, containing $m$ neurons, given by the following~equation:
 \begin{equation}
@@ -418,7 +407,7 @@ As an example, Figure \ref{fig:AnnFit} displays the stress/strain curve experime
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\columnwidth]{Figures/AnnFit}
-\caption{Filtrage des données de contrainte/déformation à l'aide du réseau de neurones artificiels (ANN) pour $\mdot\varepsilon=0.001~\text{s}^{-1}$ et $T=1050\celsius$.}
+\caption{Filtering of the stress/strain data using the ANN for $\mdot\varepsilon=0.001~\ps$ and $T=1050\celsius$.}
 \label{fig:AnnFit}
 \end{figure}
 The models' accuracy and predictive ability are typically evaluated using specific coefficients, such as the mean absolute relative error ($\MARE$), as defined by the following equation:
@@ -522,14 +511,14 @@ $1$ & $1150$ & $0.700$ & $89.525$ & $0.268$ & $89.067$\\
 
 The DRX process commences at a critical deformation, as previously noted.
 The degree of recrystallization can be determined through experimental means.
-Figure \ref{fig:DRXschema} depicts three phases of recrystallization: nucleation, grain growth, and grain coalescence \cite{Wan-2017}.
-
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=0.7\columnwidth]{Figures/picDRX}
-\caption{Schematic diagram of three stages during DRX, nucleation, nucleus growth and grain contact.}
-\label{fig:DRXschema}
-\end{figure}
+%Figure \ref{fig:DRXschema} depicts three phases of recrystallization: nucleation, grain growth, and grain coalescence \cite{Wan-2017}.
+%\begin{figure}[!ht]
+%\centering
+%\includegraphics[width=0.7\columnwidth]{Figures/picDRX}
+%\caption{Schematic diagram of three stages during DRX, nucleation, nucleus growth and grain contact.}
+%\label{fig:DRXschema}
+%\end{figure} 
+\textcolor{purple}{For some visual representation of microstructure evolution during DRX, the interested reader can refer to Chen \eal \cite{Chen-2019}.}
 
 The flow stress curve of the material is influenced by the rate of work hardening, which in turn is affected by dislocations within the free grains.
 The predicted volume fraction of the dynamic recrystallization ($X_{drx}^{p}$) is estimated using the Avrami model \cite{Avrami-1939} , commonly known as the JMAK model, expressed by the following equation:
@@ -545,14 +534,15 @@ X_{drx}^{e} = \frac{\sigma_p-\sigma}{\sigma_p-\sigma_{s}}
 
 Where $\sigma_p$ and $\sigma_s$ are the peak stress and the steady stress after the peak stress respectively.
 The steady stress is considered as the minimum one after the peak stress.
-It is possible to establish a dependency relationship between these specific stresses/strains and the Zener-Hollomon parameter $Z = \mdot\varepsilon \exp{\left(\frac{Q}{RT}\right)} \label{eq:ArZ}$ \cite{Zenner-1944}, according to the following equation \cite{Chen-2014,Li-2019,Wang-2021}:
+It is possible to establish a dependency relationship between these specific stresses/strains and the Zener-Hollomon \cite{Zenner-1944} parameter $Z = \mdot\varepsilon \exp{\left(\frac{Q}{RT}\right)} \label{eq:ArZ}$, \textcolor{purple}{(where $Q$ is the effective activation energy parameter $Q=437.4~\text{kJ/mol}$, $R$ is the universal gas constant $R=8.314~\text{J/mol/K}$)}, according to the following equation \textcolor{purple}{reported by other researchers such as \cite{Chen-2014,Li-2019,Wang-2021} for similar steel compositions and deformation conditions}:
 \begin{equation}
 \begin{cases}
-\varepsilon_c = A_cZ^{n_c} \\ \varepsilon_p = A_pZ^{n_p} \\ \sigma_c = B_cZ^{m_c} \\ \sigma_p = B_pZ^{m_p}\\ \sigma_s = B_sZ^{m_s}
+\varepsilon_c = A_cZ^{n_c} \\ \varepsilon_p = A_pZ^{n_p} \\ \sigma_c = B_cZ^{m_c} \\ \sigma_p = B_pZ^{m_p}\\ \sigma_s = B_sZ^{m_s},
 \end{cases}
 \label{eq:paramsZ}
 \end{equation}
-With the parameters $A_c$, $A_p$, $n_c$, $n_p$, $B_c$, $B_p$, $B_s$, $m_c$, $m_p$, and $m_s$, the specific strains and stresses' dependency on the Zener-Hollomon parameter whose identification is described in this paper later and the effective activation energy parameter $Q$ value is $437.385$ kJ.mol$^{-1}$.
+with the parameters $A_c$, $A_p$, $n_c$, $n_p$, $B_c$, $B_p$, $B_s$, $m_c$, $m_p$, and $m_s$, the specific strains and stresses' dependency on the Zener-Hollomon parameter whose identification is described here after.
+The procedure for determining of the value of $Q$ is detailed in \cite{TizeMha-2023}.
 
 The JMAK model's parameter identification involves two main steps, starting with determining the 10 coefficients $A$, $n$, $B$, and $m$.
 Secondly, those coefficients are integrated into equation (\ref{eq:paramsZ}) to be used in equations (\ref{eq:drxpred}) and (\ref{eq:drxexp}).
@@ -572,7 +562,7 @@ Table \ref{tab:allparams} displays the dependency of both the Zener-Hollomon par
 \toprule
 $A_c$ & $A_p$& $B_c$& $B_p$& $B_s$& $n_c$ \\
 \hline
-$4.4268\times10^{-5}$& $29.85\times10^{-5}$& $0.0720627$&$0.103141	$&$10265.8	$&$0.235832	$\\
+$4.4268\times10^{-5}$& $29.85\times10^{-5}$& $0.0720627$&$0.103141$&$10265.8$&$0.235832$\\
 \toprule
 $n_p$ & $m_c$& $m_p$& $m_s$& $k$& $n_k$ \\
 \hline
@@ -581,14 +571,21 @@ $0.203678	$& $0.188236$&$0.181822$&$-0.19708$&$0.48632$&$3.36531$\\
 \end{tabular}
 \label{tab:allparams}
 \end{table}
+
+The critical conditions calculated by the Poliak method are used to provide the curves of $X_{drx}(\varepsilon)$ in Figure \ref{fig:nDRX} where comparison between experimental and prediction is made for strain rate $\mdot\varepsilon=0.001~\ps$ and three temperature ($1050^\circ$C, $1150^\circ$C and $1250^\circ$C).
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.99\columnwidth]{Figures/nDRX1}
 	\caption{DRX experimental data (dots) and JMAK model based prediction (plain lines).}
 	\label{fig:nDRX}
 \end{figure}
-
-The critical conditions calculated by the Poliak method are used to provide the curves of $X_{drx}(\varepsilon)$ in Figure \ref{fig:nDRX} where comparison between experimental and prediction is made for strain rate $\mdot\varepsilon=0.001~\ps$ and three temperature ($1050^\circ$C, $1150^\circ$C and $1250^\circ$C).
+\textcolor{purple}{Figure \ref{fig:eDRX} shows a micrograph of the sample for $\mdot\varepsilon=0.001~\ps$, $T=1050^\circ$C and $\varepsilon=0.55$. From this later, we determined the location of one of experimental point in Figure \ref{fig:nDRX} (the red one for $\varepsilon=0.55$). The same approach using different temperatures and strains is used to obtain the other experimental points reported in Figure \ref{fig:nDRX}.}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\columnwidth]{Figures/micrograph}
+	\caption{\textcolor{purple}{Micrograph of the sample for $\mdot\varepsilon=0.001~\ps$, $T=1050^\circ$C and $\varepsilon=0.55$.}}
+	\label{fig:eDRX}
+\end{figure}
 The curves illustrate the changes in predicted volume fractions of DRX with plastic strain and it is evident that the proportion of DRX is strongly affected by strain, temperature, and strain rate values.
 The DRX kinetics exhibit an S-shaped curve, with the DRX volume fraction gradually increasing with strain.
 At a constant temperature and strain, the DRX volume fraction increases with decreasing strain rate.
@@ -638,7 +635,7 @@ All details regarding the artificial neural network, experimental data setup, an
 \end{figure}
 
 We again used the Tensorflow library to develop the training program and employed the ADAM optimizer for the training phase.
-The training database, as described in Section \ref{subsec:ExperimentalProcedure}, contains $21,030$ quadruples of values for strain ($\varepsilon$), strain rate ($\mdot\varepsilon$), temperature ($T$), and stress ($\sigma$).
+The training database, as described in Section \ref{subsec:ExperimentalProcedure}, contains $21,030$ quadruples \textcolor{purple}{(we have $701\times30$ quadruples because $\varepsilon\in[0,0.7]$ with an increment of $0.001$, so we have $701$ values and 30 data curves)} of values for strain ($\varepsilon$), strain rate ($\mdot\varepsilon$), temperature ($T$), and stress ($\sigma$).
 
 We selected six different networks, named 3-$n$-$m$-1, where $n$ represents the number of neurons in the first hidden layer and $m$ indicates the number of neurons in the second hidden layer to demonstrate the significance of choosing the appropriate number of neurons in these two layers.
 
@@ -682,6 +679,7 @@ $\RMSE(\MPa)$ & $0.59$ & $0.57$ & $0.65$ & $0.55$ & $0.46$ & $0.38$ \\
 \label{fig:ANN-3-15-7-1}
 \end{figure}
 This model will serve as the material flow equation for the numerical simulations discussed in Section \ref{subsec:DRXSimulation}.
+\textcolor{purple}{Once the neural network is trained and a stable solution is obtained, it is re-implemented as a Fortran 77 VUHARD subroutine to calculate the material flow stress in the Abaqus FEM code. The details of the procedure and complete equations set required to calculate the flow stress $\sigma$ and the three derivatives of the flow stress with respect to $\varepsilon$, $\mdot{\varepsilon}$ and $T$ can be found in \cite{Pantale-2021, Pantale-2023}.}
 
 %----------------------------------------------------------------------------------
 \subsection{Dynamic recrystallization simulation\label{subsec:DRXSimulation}}
@@ -734,7 +732,7 @@ However, the grain boundaries and the orientation of the crystallites undergo ch
 \begin{figure}[H]
 \centering
 \includegraphics[height=0.6\columnwidth]{Figures/Temp_DRX}
-\caption{$X_{drx}$ values at a strain rate of $0.01~\ps$ for different reductions and initial temperatures.}
+\caption{$X_{drx}$ values at a fixed strain rate of $\mdot{\varepsilon}=0.01~\ps$ for different reductions and initial temperatures $T_0$.}
 \label{fig:TempEffect}
 \end{figure}
 \begin{figure}[H]
@@ -754,7 +752,7 @@ This result is due to the faster strain rate, which increases the critical strai
 %----------------------------------------------------------------------------------
 
 In this section, we will compare experimental and simulation data by observing the dynamic recrystallization percentage of selected regions.
-Figure \ref{fig:expNumDRX} shows the comparison between experimental data and simulation data for a test conducted at a temperature of $1150\celsius$ with a deformation strain rate of $0.01~\ps$.
+Figure \ref{fig:expNumDRX} shows the comparison between experimental data and simulation data for a test conducted at a temperature of $1150\celsius$ with a \textcolor{purple}{strain rate of $\mdot{\varepsilon}=0.1~\ps$}.
 Four zones were chosen to observe the percentage of recrystallization, ranging from $5\%$ to $100\%$.
 The $5\%$ corresponds to the dead zone, representing the contact area between the sample and die experiencing friction effects.
 In contrast, $100\%$ corresponds to the value observed at the center of the sample where deformation is the highest.
@@ -766,7 +764,7 @@ Microscopic observations of each zone show large grains (Figure \ref{fig:expNumD
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.98\columnwidth]{Figures/drxExpNum}
-\caption{Experimental and numerical $X_{drx}$ values for $T_0=1150\celsius$ and strain rate $\mdot{\varepsilon}=0.01~\ps$.}
+\caption{Experimental and numerical $X_{drx}$ values for $T_0=1150\celsius$ and \textcolor{purple}{strain rate $\mdot{\varepsilon}=0.1~\ps$}.}
 \label{fig:expNumDRX}
 \end{figure}
 
