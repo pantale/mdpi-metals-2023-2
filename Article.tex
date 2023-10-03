@@ -335,7 +335,7 @@ and the rate of softening due to DRX slows down at higher strain rates and lower
 The result is that both the peak stress $\sigma_p$ and the onset of steady-state flow occur at higher strain levels.
 The decrease in stress detected across all temperatures and strain rates of $\mdot\varepsilon=0.001-5.0~\ps$ is attributed to the event of dynamic recrystallization (DRX).
 
-Dynamic recrystallization is a significant phenomenon for regulating a material's microstructural and mechanical properties during hot working.
+\textcolor{red}{Dynamic recrystallization is a significant phenomenon for regulating a material's microstructural and mechanical properties during hot working.
 In some materials like aluminum, DRX can counterbalance work hardening, leading to a rapid emergence of a plateau.
 However, in many austenitic steels, the kinetics of restoration are feeble, causing DRX to activate at a critical strain accumulation condition.
 Due to DRX's significant impact on the material's flow stress at high temperatures, it unavoidably affects the material's microstructure following hot working.
@@ -344,13 +344,13 @@ Several factors, such as the chemical composition of the material, the grain siz
 However, this technique necessitates extensive sampling of the pre- and post-critical deformation.
 In addition, during the cooling phase, phase transformations can occur that alter the deformed structure as it descends from the hot working temperature, making metallographic analysis difficult.
 Hence simpler techniques, like developing analytical models have been implemented.
-Several studies analyzing the initiation of DRX have been conducted with this objective in mind.
+Several studies analyzing the initiation of DRX have been conducted with this objective in mind}.
 
-In this paper, we will use the Johnson-Mehl-Avrami-Kohnogorov (JMAK) phenomenological model \cite{Avrami-1939} to calculate the development of Dynamic Recrystallization (DRX) of the material during deformation.
+\textcolor{red}{In this paper, we will use the Johnson-Mehl-Avrami-Kohnogorov (JMAK) phenomenological model \cite{Avrami-1939} to calculate the development of Dynamic Recrystallization (DRX) of the material during deformation.
 The information obtained from the Gleeble thermosimulator will be used to identify the material flow law and the parameters of the JMAK model.
 We obtain the parameters of the JMAK model through a two-step process.
 First, critical stresses and strains are determined using the ANN model to filter curves effectively.
-Then, these critical values are used as input data to calculate parameters in the JMAK model, with the goal of predicting the volume fraction of dynamic recrystallization.
+Then, these critical values are used as input data to calculate parameters in the JMAK model, with the goal of predicting the volume fraction of dynamic recrystallization}.
 
 %----------------------------------------------------------------------------------
 \subsection{DRX model's parameters identification\label{subsec:DRXParameters}}
@@ -376,7 +376,7 @@ This results in multiple possible forms for the $\theta(\sigma)$ function.
 %----------------------------------------------------------------------------------
 
 To improve the results obtained through the process of identifying critical values, we suggest employing the universal approximator capability of artificial neural networks.
-This can be Done ! by characterizing each strain-hardening curve using an ANN with just one input (strain) and one output (stress).
+This can be done by characterizing each strain-hardening curve using an ANN with just one input (strain) and one output (stress).
 In this type of network, each layer of neurons is linked to the preceding and subsequent layers through weighted connections.
 Any hidden layer $k$, containing $n$ neurons, takes a weighted sum of the outputs $\overrightarrow{\hat{y}}$ of the immediately preceding layer $(k-1)$, containing $m$ neurons, given by the following~equation:
 \begin{equation}
@@ -415,7 +415,7 @@ As an example, Figure \ref{fig:AnnFit} displays the stress/strain curve experime
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\columnwidth]{Figures/AnnFit}
-\caption{Filtering of the stress/strain data using the ANN for $\mdot\varepsilon=0.001~\ps$ and $T=1050\celsius$.}
+\caption{Filtrage des données de contrainte/déformation à l'aide du réseau de neurones artificiels (ANN) pour $\mdot\varepsilon=0.001~\text{s}^{-1}$ et $T=1050\celsius$.}
 \label{fig:AnnFit}
 \end{figure}
 The models' accuracy and predictive ability are typically evaluated using specific coefficients, such as the mean absolute relative error ($\MARE$), as defined by the following equation:
@@ -529,7 +529,7 @@ Figure \ref{fig:DRXschema} depicts three phases of recrystallization: nucleation
 \end{figure}
 
 The flow stress curve of the material is influenced by the rate of work hardening, which in turn is affected by dislocations within the free grains.
-The predicted volume fraction of the dynamic recrystallization ($X_{drx}^{p}$) is estimated using the Avrami model \cite{wan2017experimental}, commonly known as the JMAK model, expressed by the following equation:
+The predicted volume fraction of the dynamic recrystallization ($X_{drx}^{p}$) is estimated using the Avrami model \cite{Avrami-1939} , commonly known as the JMAK model, expressed by the following equation:
 \begin{equation}
 X_{drx}^{p} = 1 - \exp\left[ -k\left(\frac{\varepsilon - \varepsilon_c}{\varepsilon_p}\right)^{n_k}\right]
 \label{eq:drxpred}
@@ -542,14 +542,14 @@ X_{drx}^{e} = \frac{\sigma_p-\sigma}{\sigma_p-\sigma_{s}}
 
 Where $\sigma_p$ and $\sigma_s$ are the peak stress and the steady stress after the peak stress respectively.
 The steady stress is considered as the minimum one after the peak stress.
-It is possible to establish a dependency relationship between these specific stresses/strains and the Zener-Hollomon parameter $Z = \mdot\varepsilon \exp{\left(\frac{Q}{RT}\right)} \label{eq:ArZ}$, according to the following equation \cite{chen2014dynamic,li2019effect,wang2021artificial}:
+It is possible to establish a dependency relationship between these specific stresses/strains and the Zener-Hollomon parameter $Z = \mdot\varepsilon \exp{\left(\frac{Q}{RT}\right)} \label{eq:ArZ}$ \cite{zener1944effect}, according to the following equation as described in \cite{chen2014dynamic,li2019effect,wang2021artificial} :
 \begin{equation}
 \begin{cases}
 \varepsilon_c = A_cZ^{n_c} \\ \varepsilon_p = A_pZ^{n_p} \\ \sigma_c = B_cZ^{m_c} \\ \sigma_p = B_pZ^{m_p}\\ \sigma_s = B_sZ^{m_s}
 \end{cases}
 \label{eq:paramsZ}
 \end{equation}
-With the parameters $A_c$, $A_p$, $n_c$, $n_p$, $B_c$, $B_p$, $B_s$, $m_c$, $m_p$, and $m_s$, the specific strains and stresses' dependency on the Zener-Hollomon parameter whose identification is described in this paper later.
+With the parameters $A_c$, $A_p$, $n_c$, $n_p$, $B_c$, $B_p$, $B_s$, $m_c$, $m_p$, and $m_s$, the specific strains and stresses' dependency on the Zener-Hollomon parameter whose identification is described in this paper later and the effective activation energy parameter $Q$ value is $437.385$ kJ.mol$^{-1}$.
 
 The JMAK model's parameter identification involves two main steps, starting with determining the 10 coefficients $A$, $n$, $B$, and $m$.
 Secondly, those coefficients are integrated into equation (\ref{eq:paramsZ}) to be used in equations (\ref{eq:drxpred}) and (\ref{eq:drxexp}).
