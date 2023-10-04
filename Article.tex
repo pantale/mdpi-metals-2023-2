@@ -213,7 +213,7 @@ DRX differs from static recrystallization (SRX) which takes place when there is 
 The amount of energy stored in the metal due to plastic deformation is the driving force behind the DRX process.
 Typically, the newly formed grains are much smaller than the original grains of the undeformed material.
 Their growth is accelerated by the stored energy and high temperatures.
-DRX provides several benefits in the hot forming process by refining the grain size, enhancing the mechanical properties of the material, including strength and toughness \cite{Javidikia-2023, Dourandish-2022, Shen-2021}.
+DRX provides several benefits in the hot forming process by refining the grain size, enhancing the mechanical properties of the material, including strength and toughness \cite{Javidikia-2023, Shen-2021}.
 
 As the occurrence of the DRX softens the material, the deformation loads during hot deformation must be adjusted from one pass to another to have more accurate prediction of DRX.
 Therefore, understanding the critical conditions for dynamic recrystallization (DRX) is important for modeling industrial processes.
@@ -258,7 +258,7 @@ Hence, this study offers a replacement of the two smoothing methods with an ANN 
 %----------------------------------------------------------------------------------
 
 The experimental tests used in this work are identical to those previously published by Tize Mha \eal \cite{TizeMha-2023}.
-For additional information, readers can refer to the publications by our research group \cite{Pantale-2021, Pantale-2023}.
+For additional information, readers can refer to the publications by our research group \cite{Pantale-2021}.
 Nonetheless, we will outline the key aspects necessary to understand the suggested methodology.
 
 %----------------------------------------------------------------------------------
@@ -618,14 +618,14 @@ As stated in the research conducted by Tize Mha \eal \cite{TizeMha-2023}, the Jo
 Indeed, at the lowest strain rates, the flow stress $\sigma$ increases with strain $\varepsilon$ until reaching a value of roughly $\varepsilon=0.2$ to $0.3$.
 Afterward, it decreases, maintaining a relatively constant value until the end of the compression test.
 The Arrhenius model is the only one that can somewhat explain this softening at low strain rates.
-As proposed by Pantalé \eal \cite{Pantale-2021, Pantale-2023} and Tize Mha \eal \cite{TizeMha-2023}, an effective alternative is to use a flow law defined by an artificial neural network trained directly on experimental data from compression tests.
+As proposed by Pantalé \eal \cite{Pantale-2021} and Tize Mha \eal \cite{TizeMha-2023}, an effective alternative is to use a flow law defined by an artificial neural network trained directly on experimental data from compression tests.
 Properly defining the hyper-parameters of this neural network, such as the number of hidden layers, number of neurons, and activation functions, enables us to obtain a flow law that accurately replicates the data acquired from compression tests.
 
-According to the method proposed by Pantalé \eal \cite{Pantale-2021, Pantale-2023}, we have developed a two-hidden-layer artificial neural network based flow law in Tize Mha \eal \cite{TizeMha-2023}.
+According to the method proposed by Pantalé \eal \cite{Pantale-2021}, we have developed a two-hidden-layer artificial neural network based flow law in Tize Mha \eal \cite{TizeMha-2023}.
 Figure \ref{fig:ANN-2HL} shows the general structure of this ANN.
 The input layer of the ANN consists of three neurons that correspond to the model inputs, which are $\varepsilon$, $\mdot\varepsilon$, and $T$.
 The output layer of the ANN contains one neuron representing $\sigma$, while there are two hidden layers.
-All details regarding the artificial neural network, experimental data setup, and training method are detailed in the paper proposed by Pantalé \cite{Pantale-2023}.
+All details regarding the artificial neural network, experimental data setup, and training method are detailed in the paper proposed by Pantalé \eal \cite{Pantale-2021}.
 
 \begin{figure}[H]
 \centering
@@ -679,7 +679,7 @@ $\RMSE(\MPa)$ & $0.59$ & $0.57$ & $0.65$ & $0.55$ & $0.46$ & $0.38$ \\
 \label{fig:ANN-3-15-7-1}
 \end{figure}
 This model will serve as the material flow equation for the numerical simulations discussed in Section \ref{subsec:DRXSimulation}.
-\textcolor{purple}{Once the neural network is trained and a stable solution is obtained, it is re-implemented as a Fortran 77 VUHARD subroutine to calculate the material flow stress in the Abaqus FEM code. The details of the procedure and complete equations set required to calculate the flow stress $\sigma$ and the three derivatives of the flow stress with respect to $\varepsilon$, $\mdot{\varepsilon}$ and $T$ can be found in \cite{Pantale-2021, Pantale-2023}.}
+\textcolor{purple}{Once the neural network is trained and a stable solution is obtained, it is re-implemented as a Fortran 77 VUHARD subroutine to calculate the material flow stress in the Abaqus FEM code. The details of the procedure and complete equations set required to calculate the flow stress $\sigma$ and the three derivatives of the flow stress with respect to $\varepsilon$, $\mdot{\varepsilon}$ and $T$ can be found in \cite{Pantale-2021}.}
 
 %----------------------------------------------------------------------------------
 \subsection{Dynamic recrystallization simulation\label{subsec:DRXSimulation}}
