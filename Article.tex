@@ -202,7 +202,7 @@ The findings showed that DRX increases with rising temperature and strain, but d
 \begin{document}
 
 %----------------------------------------------------------------------------------
-\section{Introduction\label{sec:Introduction}}
+\section{Introduction}\label{sec:Introduction}
 %----------------------------------------------------------------------------------
 
 Dynamic recrystallization is a process observed in specific materials, mainly metals and alloys, as they undergo the process of plastic deformation.
@@ -254,7 +254,7 @@ Then the predictions of $\sigma(\varepsilon)$ are used as inputs for the $\theta
 Hence, this study offers a replacement of the two smoothing methods with an ANN approach to estimate the critical conditions for DRX.
 
 %----------------------------------------------------------------------------------
-\section{Materials and experiments\label{sec:MaterialsExperiments}}
+\section{Materials and experiments}\label{sec:MaterialsExperiments}
 %----------------------------------------------------------------------------------
 
 The experimental tests used in this work are identical to those previously published by Tize Mha \eal \cite{TizeMha-2023}.
@@ -262,7 +262,7 @@ For additional information, readers can refer to the publications by our researc
 Nonetheless, we will outline the key aspects necessary to understand the suggested methodology.
 
 %----------------------------------------------------------------------------------
-\subsection{Experimental procedure and compression tests results\label{subsec:ExperimentalProcedure}}
+\subsection{Experimental procedure and compression tests results}\label{subsec:ExperimentalProcedure}
 %----------------------------------------------------------------------------------
 
 The material used for this study is a medium-carbon steel with the chemical composition presented in Table \ref{tab:Composition}.
@@ -326,7 +326,7 @@ The result is that both the peak stress $\sigma_p$ and the onset of steady-state
 The decrease in stress detected across all temperatures and strain rates of $\mdot\varepsilon=0.001-5.0~\ps$ is attributed to the event of dynamic recrystallization (DRX).
 
 %----------------------------------------------------------------------------------
-\subsection{DRX model's parameters identification\label{subsec:DRXParameters}}
+\subsection{DRX model's parameters identification}\label{subsec:DRXParameters}
 %----------------------------------------------------------------------------------
 
 In this subsection we will determine the critical deformation required to initiate recrystallization.
@@ -345,7 +345,7 @@ But, depending on the degree of the polynomial and for the same stress/strain cu
 This results in multiple possible forms for the $\theta(\sigma)$ function.
 
 %----------------------------------------------------------------------------------
-\subsubsection{ANN based filtering model's architecture\label{subsec:ANNbasics}}
+\subsubsection{ANN based filtering model's architecture}\label{subsec:ANNbasics}
 %----------------------------------------------------------------------------------
 
 To improve the results obtained through the process of identifying critical values, we suggest employing the universal approximator capability of artificial neural networks.
@@ -378,7 +378,7 @@ The training was conducted using $50,000$ epochs of the experimental dataset.
 It took approximately 15 minutes to train the ANN model on a Dell XPS-13 7390 laptop running Ubuntu 22.04 LTS 64-bit with 16 GB of RAM and an Intel 4-core i7-10510U processor until the converged parameters were obtained.
 
 %----------------------------------------------------------------------------------
-\subsubsection{ANN filtering based model's application \label{subsec:ANNapplication}}
+\subsubsection{ANN filtering based model's application} \label{subsec:ANNapplication}
 %----------------------------------------------------------------------------------
 
 Since the dynamic recrystallization phenomenon only occurs for strain rates between $0.001~\ps$ and $1.0~\ps$, we will use only the first 20 stress/strain curves to identify the DRX critical parameters.
@@ -425,7 +425,7 @@ These curves deliver essential data regarding the critical stresses and strains 
 \end{figure}
 
 %----------------------------------------------------------------------------------
-\subsubsection{Critical conditions evaluation\label{subsec:CrConditions}}
+\subsubsection{Critical conditions evaluation}\label{subsec:CrConditions}
 %----------------------------------------------------------------------------------
 
 As described previously, dynamic recrystallization only occurs when a particular critical condition is met.
@@ -487,7 +487,7 @@ $1$ & $1150$ & $0.700$ & $89.525$ & $0.268$ & $89.067$\\
 \end{table}
 
 %----------------------------------------------------------------------------------
-\subsection{DRXmodel parameters evaluation\label{subsec:DRXparams}}
+\subsection{DRXmodel parameters evaluation}\label{subsec:DRXparams}
 %----------------------------------------------------------------------------------
 
 The DRX process commences at a critical deformation, as previously noted.
@@ -578,7 +578,7 @@ However, because of the limited mobility of grain boundaries, the rate of dynami
 The validation of the model used in the study, as evidenced by the correlation between experimental and predicted results, supports the subsequent use of these findings in the simulation section.
 
 %----------------------------------------------------------------------------------
-\section{Numerical simulation of the compression\label{sec:NumSim}}
+\section{Numerical simulation of the compression}\label{sec:NumSim}
 %----------------------------------------------------------------------------------
 In this section, we will focus on numerically validating the previously performed identification of dynamic recrystallization.
 This requires establishing a constitutive law capable of accurately predicting the material's plastic deformation.
@@ -587,7 +587,7 @@ The results revealed an artificial neural network model as the most appropriate 
 As a result, this section has two main focuses: first, a summary of the ANN-based constitutive law identification, as previously presented; and second, the incorporation of this identified ANN model with the JMAK model to predict dynamic recrystallization behavior.
 
 %----------------------------------------------------------------------------------
-\subsection{Identification of the ANN constitutive law\label{subsec:ANNConstitutiveLaw}}
+\subsection{Identification of the ANN constitutive law}\label{subsec:ANNConstitutiveLaw}
 %----------------------------------------------------------------------------------
 
 In general terms, flow stress $\sigma$ is a non-linear function of the strain $\varepsilon$, increasing with the strain rate $\mdot\varepsilon$, but decreasing with increasing temperature $T$.
@@ -663,7 +663,7 @@ This model will serve as the material flow equation for the numerical simulation
 Once the neural network is trained and a stable solution is obtained, it is re-implemented as a Fortran 77 VUHARD subroutine to calculate the material flow stress in the Abaqus FEM code. The details of the procedure and complete equations set required to calculate the flow stress $\sigma$ and the three derivatives of the flow stress with respect to $\varepsilon$, $\mdot{\varepsilon}$ and $T$ can be found in \cite{Pantale-2021}.
 
 %----------------------------------------------------------------------------------
-\subsection{Dynamic recrystallization simulation\label{subsec:DRXSimulation}}
+\subsection{Dynamic recrystallization simulation}\label{subsec:DRXSimulation}
 %----------------------------------------------------------------------------------
 
 To evaluate the effectiveness of the DRX model presented earlier, we propose a numerical simulation of a compression test in this section.
@@ -686,7 +686,7 @@ The simulation considered three temperatures ($1050\degree$C, $1150\degree$C, an
 \end{figure}
 
 %----------------------------------------------------------------------------------
-\subsubsection{Temperature and strain rate effects \label{subsec:TempSReffect}}
+\subsubsection{Temperature and strain rate effects}\label{subsec:TempSReffect}
 %----------------------------------------------------------------------------------
 
 Temperature and strain rate are critical factors that influence dynamic recrystallization in materials, particularly metals and alloys.
@@ -729,7 +729,7 @@ As shown in Figure \ref{fig:SREffect}, escalating strain rates result in a decre
 This result is due to the faster strain rate, which increases the critical strain and decreases the chance of internal dynamic recrystallization in the material.
 
 %----------------------------------------------------------------------------------
-\subsubsection{Comparison with some experiments\label{subsec:ExpValid}}
+\subsubsection{Comparison with some experiments}\label{subsec:ExpValid}
 %----------------------------------------------------------------------------------
 
 In this section, we will compare experimental and simulation data by observing the dynamic recrystallization percentage of selected regions.
@@ -758,7 +758,7 @@ Figure \ref{fig:expNumDRX2} shows a comparison of the numerical results for a st
 \end{figure}
 
 %----------------------------------------------------------------------------------
-\section{Conclusions\label{sec:Conclusions}}
+\section{Conclusions}\label{sec:Conclusions}
 %----------------------------------------------------------------------------------
 
 In this study, we used the abilities of the ANN technique to deeply comprehend the dynamic recrystallization process and its adaptations in varying conditions.
@@ -853,9 +853,9 @@ WH  & Work hardening
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Optional
 \appendixtitles{no} % Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If the appendix sections contain a heading then change the argument to "yes".
-\appendixstart
-\appendix
-\section[\appendixname~\thesection]{}\label{sec:Appendix}
+%\appendixstart
+%\appendix
+%\section[\appendixname~\thesection]{}\label{sec:Appendix}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{adjustwidth}{-\extralength}{0cm}
