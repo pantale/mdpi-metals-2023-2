@@ -55,7 +55,7 @@
 \datepublished{15 October 2023 }
 %\datecorrected{} % For corrected papers: "Corrected: XXX" date in the original paper.
 %\dateretracted{} % For corrected papers: "Retracted: XXX" date in the original paper.
-\hreflink{https://doi.org/10.3390/met13101746} % If needed use \linebreak
+\hreflink{https://doi.org/10.3390/\linebreak met13101746} % If needed use \linebreak
 %\doinum{}
 %\pdfoutput=1 % Uncommented for upload to arXiv.org
 
@@ -102,7 +102,7 @@
 %\Title{Artificial neural network based critical conditions for dynamic recrystallization initiation of medium carbon steel and Application : Analytical and Finite Element Modeling}%
 
 % MDPI internal command: Title for citation in the left column
-\TitleCitation{Artificial Neural Network-Based Critical Conditions for the Dynamic Recrystallization of Medium Carbon Steel and~Application}
+\TitleCitation{Artificial Neural Network-Based Critical Conditions for the Dynamic Recrystallization of Medium Carbon Steel and Application}
 %MDPI: Title modified, please confirm.
 % Author Orchid ID: enter ID or remove command
 \newcommand{\orcidauthorA}{0000-0001-7367-5453}
@@ -155,7 +155,7 @@ The comparison revealed a strong correlation between the simulation and experime
 \linebreak The findings showed that DRX increases with rising temperature and strain but decreases with increasing strain rate.}
 
 % Keywords
-\keyword{artificial neural network; constitutive flow law; Gleeble simulator; dynamic recrystallization; finite element analysis}
+\keyword{\textls[-13]{artificial neural network; constitutive flow law; Gleeble simulator; dynamic recrystallization; finite element analysis}}
 
 % The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
 %\PACS{J0101}
@@ -219,7 +219,7 @@ Typically, the~newly formed grains are much smaller than the original grains of 
 Their growth is accelerated by the stored energy and high temperatures.
 DRX provides several benefits in the hot forming process by refining the grain size and enhancing the mechanical properties of the material, including strength and toughness~\cite{Javidikia-2023, Shen-2021}.
 
-As the occurrence of DRX softens the material, the~deformation loads during hot deformation must be adjusted from one pass to another to have a more accurate prediction of DRX.
+\textls[-12]{As the occurrence of DRX softens the material, the~deformation loads during hot deformation must be adjusted from one pass to another to have a more accurate prediction of DRX.
 Therefore, understanding the critical conditions for dynamic recrystallization (DRX) is important for modeling industrial processes.
 However, the~extent of DRX is influenced by factors such as material composition, deformation temperature, strain rate, and~strain.
 By optimizing the parameters, engineers can attain the desired microstructures and mechanical properties in the final product.
@@ -230,7 +230,7 @@ Hence, simpler techniques such as the development of analytical models are requi
 In this regard, multiple studies have been carried out aiming to analytically identify the initiation of DRX.
 For instance, Yan Peng \eal~\cite{Peng-2022} determined the critical strain and critical stress for DRX's initiation based on the method proposed by Najafizadeh and Jonas~\cite{Najafizadeh-2006} to establish a DRX kinetic model for hot-rolled conditions based on the relationship between the characteristic parameters of DRX and the temperature and strain rate. This approach defines the critical stress required for the initiation of DRX during deformation.
 According to Gottstein \eal~\cite{Gottstein-2004}, the~critical strain for initiating DRX can also be predicted based on a work hardening model of dislocation density.
-The onset of dynamic recrystallization (DRX) may be identified through the inflection point in the strain hardening rate $\theta(\sigma)=\frac{\partial \sigma}{\partial \varepsilon}$, where $\sigma$ is the stress and $\varepsilon$ is the~strain.
+The onset of dynamic recrystallization (DRX) may be identified through the inflection point in the strain hardening rate $\theta(\sigma)=\frac{\partial \sigma}{\partial \varepsilon}$, where $\sigma$ is the stress and $\varepsilon$ is the~strain.}
 
 The DRX phenomenon, based on the inflection point, was first studied by Ryan and McQueen~\cite{Ryan-1989, Ryan-1990, Ryan-1990-2}.
 They observed the appearance of an inflection point on the $\theta(\sigma)$ curve before the peak stress $\sigma_p$ and attributed the beginning of DRX and the critical conditions to this point.
@@ -302,7 +302,7 @@ During compression, the~sample temperature was maintained at a constant level th
 Subsequently, the~structure was frozen at a fast pace in order to preserve the microstructure for future~analysis.
 
 The raw stress--strain data were exported from the Gleeble thermomechanical simulator as true stress and true strain, and~the set of 30 flow stress curves $\sigma$ versus strain $\varepsilon$ obtained from compression tests for each test condition is reported in Figure~\ref{fig:RawData}.
-All stress--strain data are composed of 701 equidistant strain values from $\varepsilon=0.0$ to $\varepsilon=0.7$ in $0.001$ increments.
+All stress--strain data are composed of 701 equidistant strain values from $\varepsilon=0.0$ to $\varepsilon=0.7$ in $0.001$~increments.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\columnwidth]{Figures/rawData}
@@ -341,13 +341,13 @@ Later, Poliak and Jonas~\cite{Poliak-1996, Poliak-2003, Poliak-2003-2, Jonas-200
 Najafizadeh and Jonas~\cite{Najafizadeh-2006} developed an analytical technique to determine the critical conditions for DRX initiation, simplifying the thermodynamic model of Poliak and Jonas.
 Their widely used approach adopts a 3{rd} degree polynomial to describe the curve $\theta(\sigma)$, enabling the identification of critical stress and strain ($\sigma_c$ and $\varepsilon_c$) through the second~derivative.
 
-As previously stated, critical values for DRX initiation are determined by identifying the inflection point on the $\theta(\sigma)$ curve between $\varepsilon=0$ and $\varepsilon_c$.
+\textls[-20]{As previously stated, critical values for DRX initiation are determined by identifying the inflection point on the $\theta(\sigma)$ curve between $\varepsilon=0$ and $\varepsilon_c$.
 One challenge is calculating the derivative of stress versus strain values numerically, as~compression test data exhibit oscillations, as~depicted in Figure~\ref{fig:RawData}.
-It is not feasible to compute the derivative $\theta(\sigma)=\frac{\partial \sigma}{\partial \varepsilon}$ directly.
+It is not feasible to compute the derivative $\theta(\sigma)=\frac{\partial \sigma}{\partial \varepsilon}$~directly.}
 
-To overcome this difficulty, certain authors propose smoothing out the empirical data (perhaps through the utilization of the Excel solver~\cite{Najafizadeh-2006}) or discovering an analytical function (such as a polynomial with a relatively high degree) through a minimization algorithm.
+\textls[-5]{To overcome this difficulty, certain authors propose smoothing out the empirical data (perhaps through the utilization of the Excel solver~\cite{Najafizadeh-2006}) or discovering an analytical function (such as a polynomial with a relatively high degree) through a minimization algorithm.
 \linebreak However, depending on the degree of the polynomial, for the same stress--strain curve, multiple solutions may be obtained.
-This results in multiple possible forms for the $\theta(\sigma)$ function.
+This results in multiple possible forms for the $\theta(\sigma)$~function.}
 
 %----------------------------------------------------------------------------------
 \subsubsection{ANN-Based Filtering Model's~Architecture}\label{subsec:ANNbasics}
@@ -371,7 +371,7 @@ No activation function was used for the output neuron of the ANN, as~is typicall
 The chosen architecture for our application consists of two hidden layers, one with 7 neurons and the other with 5 neurons, as~illustrated in Figure~\ref{fig:ANN-7-5}.
 To calculate the number of internal parameters $N_{int}$ in the model, where $n$ and $m$ represent the number of neurons in the first and second hidden layers, respectively, the~following formula may be used: $N_{int}=m(2+n)+2n+1$.
 
-Thus, for a $7-5$ network, $N_{int}=60$.
+Thus, for a 7-5 network, $N_{int}=60$.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\columnwidth]{Figures/ANN-7-5}
@@ -394,7 +394,7 @@ As an example, Figure~\ref{fig:AnnFit} displays the stress--strain curve experim
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\columnwidth]{Figures/AnnFit}
+\includegraphics[width=0.8\columnwidth]{Figures/AnnFit}
 \caption{Filtering of the stress--strain data using the ANN for $\mdot\varepsilon=0.001~\ps$ and $T=1050~\celsius$.}
 \label{fig:AnnFit}
 \end{figure}
@@ -419,7 +419,7 @@ These curves deliver essential data regarding the critical stresses and strains 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\columnwidth]{Figures/AnnTheta}
+\includegraphics[width=0.8\columnwidth]{Figures/AnnTheta}
 \caption{Computation of the hardening curve $\theta(\sigma)$ from the stress--strain data using the ANN for $\mdot\varepsilon=0.001~\ps$ and $T=1050~\celsius$.}
 \label{fig:AnnTheta}
 \end{figure}
@@ -454,6 +454,7 @@ Secondly, %MDPI: Yes
 \begin{equation}
 \frac{d^2 p(\sigma)}{d \sigma^2} = 0 \Longrightarrow \sigma_c = -a_1/3a_0
 \end{equation}
+
 Similarly, %MDPI:  Ok
  the~critical strain ($\varepsilon_c$) is calculated by defining a third-degree polynomial function $q(\sigma)$ approximating the $\ln \theta(\varepsilon)$ curve as depicted in Figure~\ref{fig:nThetaOP}:
 \begin{equation}
@@ -568,7 +569,7 @@ $0.203678	$& $0.188236$&$0.181822$&$-0.19708$&$0.48632$&$3.36531$\\
 \label{tab:allparams}
 \end{table}
 
-The critical conditions calculated by the Poliak method are used to provide the curves of $X_{drx}(\varepsilon)$ in Figure~\ref{fig:nDRX}, where a comparison between the experimental and predicted values is made for the strain rate $\mdot\varepsilon=0.001~\ps$ and three temperatures (1050 $^\circ$C, 1150 $^\circ$C and 1250 $^\circ$C).
+The critical conditions calculated by the Poliak method are used to provide the curves of $X_{drx}(\varepsilon)$ in Figure~\ref{fig:nDRX}, where a comparison between the experimental and predicted values is made for the strain rate $\mdot\varepsilon=0.001~\ps$ and three temperatures (1050 $^\circ$C, 1150 $^\circ$C and 1250~$^\circ$C).
 \begin{figure}[H]
 \centering
 	\includegraphics[width=0.99\columnwidth]{Figures/nDRX1}
@@ -648,7 +649,7 @@ The global performance of the model is illustrated in Figure \ref{fig:ANN-3-15-7
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\columnwidth]{Figures/Conv-ANN-6}
+\includegraphics[width=0.75\columnwidth]{Figures/Conv-ANN-6}
 \caption{Evolution of the convergence of the models during the training procedure for the \mbox{6 proposed} network~architectures.}
 \label{fig:ANN-conv}
 \end{figure}
@@ -831,7 +832,7 @@ data curation, P.T.M. and P.D.;
 writing---original draft preparation, O.P. and P.T.M.;
 writing---review and editing, O.P.;
 visualization, O.P.;
-supervision, M.J., A.T., and O.P.;
+supervision, M.J., A.T. and O.P.;
 project administration, M.J.;
 funding acquisition, M.J.
 All authors have read and agreed to the published version of the~manuscript.}
@@ -848,7 +849,7 @@ All authors have read and agreed to the published version of the~manuscript.}
 
 \acknowledgments{The authors acknowledge Jean-Benoit Morin, Director of Metallurgy and Quality from Finkl Steel-Sorel, Abdelhalim Loucif from the R\&D department of Finkl Steel-Sorel, Ecole de Technologie Superieure, and~Ecole Nationale d'Ingenieurs de Tarbes, France, for~providing technical data, materials, and~testing~facilities.}%MDPI: We removed titles here: OK
 
-\conflictsofinterest{The authors declare no conflicts of~interest.}
+\conflictsofinterest{The authors declare no conflict of~interest.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Optional
@@ -1091,7 +1092,7 @@ Chen, X.; Sun, J.; Yang, Y.; Liu, B.; Si, Y.; Zhou, J.
 \newblock {Interpolation and Extrapolation Performance Measurement of
   Analytical and ANN-Based Flow Laws for Hot Deformation Behavior of Medium
   Carbon Steel}.
-\newblock {\em Metals} {\bf 2023}, {\em 13}.
+\newblock {\em Metals} {\bf 2023}, {\em 13}, 633.
 \newblock {\url{https://doi.org/10.3390/met13030633}}.
 
 \bibitem[Pantalé \em{et~al.}(2022)Pantalé, {Tize Mha}, and
