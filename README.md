@@ -1,4 +1,4 @@
-# MDPI Metals (2023-2)
+# MDPI Metals (2023)
 
 This repository contains the source files of the MDPI Metals publication:
 
